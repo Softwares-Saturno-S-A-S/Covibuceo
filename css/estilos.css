@@ -70,9 +70,11 @@ body {
             width: 100%;
         }
 
-        a {
-            display: block;
+        .enlaces{
             text-align: center;
+        }
+
+        a {
             margin-top: 10px;
             text-decoration: none;
             color:#999999;
