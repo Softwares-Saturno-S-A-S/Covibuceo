@@ -10,7 +10,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #298b26;
+            background-color: #1A6C44;
             color: white;
             padding: 15px;            
         }
@@ -27,7 +27,7 @@
         }
 
         header a{
-            color: white
+            color: white;
         }
 
         header img {
