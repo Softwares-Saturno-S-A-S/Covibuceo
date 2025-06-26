@@ -3,7 +3,7 @@
             background-color: #f4f4f4;
             color: #333;
             margin: 0;
-            padding: 0 5px;
+            padding: 0;
         }
 
         header{
@@ -52,6 +52,12 @@
         }
         h3{
             font-size: large;
+        }
+
+        .content_1{
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         form {
