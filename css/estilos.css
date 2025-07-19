@@ -45,6 +45,7 @@
         }
 
         section{
+            border-radius: 5px;
             padding: 10px 15px;
         }
 
@@ -141,6 +142,20 @@
             background-color: #D11414;
             border-radius: 40px;
             padding: 10px 40px;
+        }
+
+        .solicitud, .pago{
+            background-color: #C5C5C5;
+
+        }
+        .solicitud_1, .pago_1{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        button{
+            margin-left: 25px;
         }
 
         .enlaces{
