@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVIBUCEO - Home Administración</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <style>
+        .solicitud {
+            background-color: #C5C5C5;
+
+        }
+        .solicitud_1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        button{
+            margin-left: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="backoffice.html"><img src="../img/Logo Cooperativa (3).svg" alt="Logo COVIBUCEO"></a>
+        <ul>
+            <li><a href="backoffice/index.html">Solicitudes</a></li>
+            <li><a href="pagos.html">Pagos</a></li>
+            <li><a href="jornadas.html">Jornadas Laborales</a></li>
+            <li><a href="actividad.html">Actividad Usuarios</a></li>
+        </ul>
+    </header>
+    <main>
+        <section class="solicitud">
+            <div class="solicitud_1">
+                <div>
+                    <p>{Fecha y hora del registro}</p>
+                    <p class="p1">{Nombre de la persona} ha solicitado asociarse a la cooperativa</p>
+                </div>
+                <div>
+                    <button class="button-size-green">Aceptar</button>
+                    <button class="button-size-red">Rechazar</button>
+                </div>
+            </div>
+            <p>Cédula: {Cédula de la persona}</p>
+            <p>Teléfono: {Teléfono de la persona}</p>
+            <p>Correo: {Correo de la persona}</p>
+            <p>Comprobante de Ingresos: {Archivo de recibo de suledos}</p>
+            </div>
+    </main>
+</body>
+
+</html>

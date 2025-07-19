@@ -32,7 +32,7 @@
         }
 
         header ul li{
-            margin-left: 15px;
+            margin-left: 25px;
         }
 
         header a{
@@ -48,16 +48,16 @@
             padding: 10px 15px;
         }
 
-        p, li, label{
-            font-size: large;
+        p{
+            font-size: 1.1em;
         }
 
-        .p1{
-            font-size: ;
+        .p1, li, label, button{
+            font-size: 1.3em;
         }
 
         .p2{
-            font-size: 2.0em;
+            font-size: 1.5em;
         }
 
         p{
@@ -105,11 +105,6 @@
             margin-bottom: 15px;
         }
 
-        .botones{
-            display: flex;
-            justify-content: space-between;
-        }
-
         label {
             display: block;
             margin-bottom: 5px;
@@ -124,14 +119,28 @@
         }
 
         button {
-            padding: 15px;
-            background-color: #333;
             color: white;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
+        }
+
+        .button-100{
+            background-color: #333;
+            border-radius: 5px;
             width: 100%;
-            font-size: medium;
+            padding: 15px;
+        }
+
+        .button-size-green{
+            background-color: #1A6C44;
+            border-radius: 40px;
+            padding: 10px 40px;
+        }
+
+        .button-size-red{
+            background-color: #D11414;
+            border-radius: 40px;
+            padding: 10px 40px;
         }
 
         .enlaces{
