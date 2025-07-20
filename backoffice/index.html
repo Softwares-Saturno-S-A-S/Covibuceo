@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COVIBUCEO - Home Administración</title>
     <link rel="stylesheet" href="../css/estilos.css">
+    <style>
+        button {
+            margin-left: 25px;
+        }
+    </style>
 </head>
 
 <body>
@@ -20,21 +25,18 @@
     </header>
     <main>
         <section class="solicitud">
-            <div class="solicitud_1">
-                <div>
+                <div class="sub1">
                     <p>{Fecha y hora del registro}</p>
                     <p class="p1">{Nombre de la persona} ha solicitado asociarse a la cooperativa</p>
+                    <p>Cédula: {Cédula de la persona}</p>
+                    <p>Teléfono: {Teléfono de la persona}</p>
+                    <p>Correo: {Correo de la persona}</p>
+                    <p>Comprobante de Ingresos: {Archivo de recibo de suledos}</p>
                 </div>
-                <div>
+                <div class="sub2">
                     <button class="button-size-green">Aceptar</button>
                     <button class="button-size-red">Rechazar</button>
                 </div>
-            </div>
-            <p>Cédula: {Cédula de la persona}</p>
-            <p>Teléfono: {Teléfono de la persona}</p>
-            <p>Correo: {Correo de la persona}</p>
-            <p>Comprobante de Ingresos: {Archivo de recibo de suledos}</p>
-            </div>
     </main>
 </body>
 
