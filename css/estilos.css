@@ -85,6 +85,10 @@
             font-size: 1.5em;
         }
 
+        .h3-center{
+            text-align: center;
+        }
+
         form {
             max-width: 410px;
             margin: auto;
