@@ -13,7 +13,8 @@
 
     <?php
       if (isset($_GET['error']) && $_GET['error'] == 'existe') {
-          echo '<p style="color: red;">⚠️ El nombre o correo ya está registrado.</p>';
+          echo '<p style="color: red;"> El nombre o correo ya está registrado.</p>';
+          header("Location: index.html");
       }
     ?>
 

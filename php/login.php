@@ -24,7 +24,7 @@ if ($resultado->num_rows === 1) { //Condicón que se haya encontrado una y solo 
         $persona = $fila; //Si las claves coinciden se almacena l afila en una avriable persona para iniciar sesión
         
         session_start();
-            $_SESSION['I.D.'] = $persona['I.D.']; //Ingresar el id en la sesión
+            $_SESSION['ID'] = $persona['ID']; //Ingresar el id en la sesión
             $_SESSION['Nombre'] = $persona['Nombre']; //Ingresar el nombre en la sesión (opcional)
 
         header("Location: inicio.php"); //Dirige a la página de inicio

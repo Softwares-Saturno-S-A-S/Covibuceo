@@ -6,26 +6,40 @@ if ($conexion->connect_error) {
 }
 
 // Obtener datos del formulario
-$nombre = $_POST['nombre'];
+$nombre = $_POST['name'];
+$apellido = $_POST['surname'];
+$ci = $_POST['ci'];
+$telefono = $_POST['tel'];
 $email = $_POST['email'];
-$clavePlano = $_POST['clave'];
+$clavePlano = $_POST['password'];
 $claveHasheada = password_hash($clavePlano, PASSWORD_DEFAULT);
 
-// Verificar si ya existe ese email o nombre
-$sql_verificar = "SELECT id FROM usuarios WHERE email = ? OR nombre = ?";
+// Verificar si ya existe ese email o cédula
+$sql_verificar = "SELECT id FROM usuarios WHERE email = ? OR CI = ?";
 $stmt = $conexion->prepare($sql_verificar);
-$stmt->bind_param("ss", $email, $nombre);
+$stmt->bind_param("ss", $email, $ci);
 $stmt->execute();
 $resultado = $stmt->get_result();
 
 if ($resultado->num_rows > 0) {
     // Usuario ya existe → redirigir con error
-    header("Location: registro_form.php?error=existe");
+    header("Location: index.php?error=existe");
     exit;
+} else {
+    $sql_insertar = "INSERT INTO SOLICITUD (nombre, ) VALUES (?, ?, ?)";
+    $stmt = $conexion->prepare($sql_insertar);
+    $stmt->bind_param("sss", $nombre, $email, $claveHasheada);
+    if ($stmt->execute()) {
+        // Registro exitoso → redirigir al login
+        header("Location: index.php?registro=exito");
+        exit;
+    } else {
+        echo "Error al registrar: " . $stmt->error;
+    }
 }
 
 // Insertar nuevo usuario
-$sql_insertar = "INSERT INTO usuarios (nombre, email, clave) VALUES (?, ?, ?)";
+$sql_insertar = "INSERT INTO SOCIO (nombre, , clave) VALUES (?, ?, ?)";
 $stmt = $conexion->prepare($sql_insertar);
 $stmt->bind_param("sss", $nombre, $email, $claveHasheada);
 

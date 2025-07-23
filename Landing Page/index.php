@@ -59,7 +59,13 @@
                     <li>Tener un ingreso familiar inferior a 60 U.R. (Unidad Reajustable)</li>
                     <li>Realizar con anterioridad un aporte incial de al menos $10.000</li>
                 </ul>
-                <form action="contrasena.html">
+
+                <?php
+      if (isset($_GET['error']) && $_GET['error'] == 'existe') {
+          echo '<p style="color: red;"> El nombre o correo ya está registrado.</p>';
+      }
+    ?>
+                <form action="registro.php" method="POST">
                     <legend>Registrate aquí</legend>
                     <p>Los campos que contienen (*) son obligatorios</p>
                     <div>
