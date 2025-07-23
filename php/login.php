@@ -16,17 +16,17 @@ $stmt->bind_param("s", $emailIngresado); //Se ingresan el o los paramentros nece
 $stmt->execute();
 $resultado = $stmt->get_result();
 
-session_start();
-$_SESSION['id'] = $usuario['id']; // o lo que corresponda
-$_SESSION['nombre'] = $usuario['nombre']; // si querés mostrar el nombre luego
-header("Location: inicio.php");
-exit;
-
 if ($resultado->num_rows === 1) { //Condicón que se haya encontrado una y solo una fila que coincide con el email ingresado
     $fila = $resultado->fetch_assoc(); 
     $claveGuardada = $fila['Password_hash'];
 
-    if (password_verify($claveIngresada, $claveGuardada)) { //Verifica que la clave ingresada y la que existe en la base de datos sean iguales 
+    if (password_verify($claveIngresada, $claveGuardada)) { //Verifica que la clave ingresada y la que existe en la base de datos sean iguales
+        $persona = $fila; //Si las claves coinciden se almacena l afila en una avriable persona para iniciar sesión
+        
+        session_start();
+            $_SESSION['I.D.'] = $persona['I.D.']; //Ingresar el id en la sesión
+            $_SESSION['Nombre'] = $persona['Nombre']; //Ingresar el nombre en la sesión (opcional)
+
         header("Location: inicio.php"); //Dirige a la página de inicio
         exit;
     } else {
