@@ -15,7 +15,7 @@ $clavePlano = $_POST['password'];
 $claveHasheada = password_hash($clavePlano, PASSWORD_DEFAULT);
 
 // Verificar si ya existe ese email o cédula
-$sql_verificar = "SELECT id FROM usuarios WHERE email = ? OR CI = ?";
+$sql_verificar = "SELECT * FROM PERSONA WHERE Email = ? OR CI = ?";
 $stmt = $conexion->prepare($sql_verificar);
 $stmt->bind_param("ss", $email, $ci);
 $stmt->execute();
@@ -26,9 +26,13 @@ if ($resultado->num_rows > 0) {
     header("Location: index.php?error=existe");
     exit;
 } else {
-    $sql_insertar = "INSERT INTO SOLICITUD (nombre, ) VALUES (?, ?, ?)";
+    $sql_insertar = "INSERT INTO SOLICITUD (CI, Password_hash, Nombre, Apellido, Email, Nro_Telefono, Fecha_Solicitud, Estado) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conexion->prepare($sql_insertar);
-    $stmt->bind_param("sss", $nombre, $email, $claveHasheada);
+    $stmt->bind_param("ibsssis", $nombre, $email, $claveHasheada, $nombre, $apellido, $telefono, date("d/m/Y H:i"));
+
+    $tabla = "SELECT * FROM SOLICITUD";
+    $res = $conexion->query($tabla);
+    echo $res;
     if ($stmt->execute()) {
         // Registro exitoso → redirigir al login
         header("Location: index.php?registro=exito");
