@@ -23,7 +23,7 @@ header("Location: inicio.php");
 exit;
 
 if ($resultado->num_rows === 1) { //Condicón que se haya encontrado una y solo una fila que coincide con el email ingresado
-    $fila = $resultado->fetch_assoc(); //Convierte la fila en un array asociativo, es decir con una clave "string". Creo qu epuede ser omitido
+    $fila = $resultado->fetch_assoc(); 
     $claveGuardada = $fila['Password_hash'];
 
     if (password_verify($claveIngresada, $claveGuardada)) { //Verifica que la clave ingresada y la que existe en la base de datos sean iguales 
