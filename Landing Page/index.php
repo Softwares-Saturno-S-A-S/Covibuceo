@@ -77,27 +77,27 @@
                     <p>Los campos que contienen (*) son obligatorios</p>
                     <div>
                         <label for="name">Nombre(s) *</label>
-                        <input id="name" type="text" required>
+                        <input name="name" type="text" required>
                     </div>
                     <div>
                         <label for="surname">Apellido(s) *</label>
-                        <input id="surmane" type="text" required>
+                        <input name="surmane" type="text" required>
                     </div>
                     <div>
                         <label for="ci">Cédula (sin guiones ni puntos) *</label>
-                        <input id="ci" type="number" required>
+                        <input name="ci" type="number" required>
                     </div>
                     <div>
                         <label for="tel">Teléfono *</label>
-                        <input id="tel" type="text" required>
+                        <input name="tel" type="text" required>
                     </div>
                     <div>
                         <label for="email">E-mail *</label>
-                        <input id="email" type="text" required>
+                        <input name="email" type="text" required>
                     </div>
                     <div>
                         <label for="password">Contraseña</label>
-                        <input id="password" type="text" required>
+                        <input name="password" type="text" required>
                     </div>
                     <div>
                         <button class="button-100" type="submit">Enviar</button>
