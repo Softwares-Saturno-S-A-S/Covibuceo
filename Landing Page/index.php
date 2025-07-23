@@ -72,7 +72,7 @@
                 }
     ?>
 
-                <form action="registro.php" method="POST">
+                <form action="../php/registro.php" method="POST">
                     <legend>Registrate aquí</legend>
                     <p>Los campos que contienen (*) son obligatorios</p>
                     <div>
