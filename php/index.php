@@ -28,7 +28,7 @@
     ?>
 
 
-    <form action="login.php" method="POST">
+    <form action="login.php" method="GET">
       <input type="email" name="email" placeholder="Correo electrónico" required />
       <input type="password" name="clave" placeholder="Contraseña" required />
       <button type="submit">Iniciar sesión</button>
