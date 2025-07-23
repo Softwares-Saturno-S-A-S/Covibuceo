@@ -61,10 +61,17 @@
                 </ul>
 
                 <?php
-      if (isset($_GET['error']) && $_GET['error'] == 'existe') {
-          echo '<p style="color: red;"> El nombre o correo ya está registrado.</p>';
-      }
+                    if (isset($_GET['error']) && $_GET['error'] == 'existe') {
+                    echo '<p style="color: red;"> La cédula y/o el email ya existen.</p>';
+                }
+                ?>
+
+                <?php
+                    if (isset($_GET['registro']) && $_GET['registro'] == 'exito') {
+                    echo '<p style="color: green;">Registro exitoso. Ahora podés iniciar sesión.</p>';
+                }
     ?>
+
                 <form action="registro.php" method="POST">
                     <legend>Registrate aquí</legend>
                     <p>Los campos que contienen (*) son obligatorios</p>
