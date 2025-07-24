@@ -28,7 +28,7 @@ if ($resultado->num_rows > 0) {
 } else {
     $sql_insertar = "INSERT INTO SOLICITUD (CI, Password_hash, Nombre, Apellido, Email, Nro_Telefono) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = $conexion->prepare($sql_insertar);
-    $stmt->bind_param("ibsssis", $nombre, $email, $claveHasheada, $nombre, $apellido, $telefono);
+    $stmt->bind_param("ibsssi", $ci, $claveHasheada, $nombre, $apellido, $email, $telefono);
 
     //$tabla = "SELECT * FROM SOLICITUD";
     // $res = $conexion->query($tabla);
