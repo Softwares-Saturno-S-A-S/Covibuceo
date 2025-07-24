@@ -42,27 +42,6 @@ if ($resultado->num_rows > 0) {
     }
 }
 
-//Si al solicitud es aceptada se redirige a esta parte del archivo
-
-//El backoffice debe tener una linea como esta:
-//header("Location: registro.php?solicitud=aporbada");
-
-    if (isset($_GET['solicitud']) && $_GET['solicitud'] == 'aprobada') {
-        echo '<p style="color: red;"> La cédula y/o el email ya existen.</p>';
-    }
-// Insertar nuevo usuario
-$sql_insertar = "INSERT INTO SOCIO (nombre, , clave) VALUES (?, ?, ?)";
-$stmt = $conexion->prepare($sql_insertar);
-$stmt->bind_param("sss", $nombre, $email, $claveHasheada);
-
-if ($stmt->execute()) {
-    // Registro exitoso → redirigir al login
-    header("Location: index.php?registro=exito");
-    exit;
-} else {
-    echo "Error al registrar: " . $stmt->error;
-}
-
 $stmt->close();
 $conexion->close();
 ?>
