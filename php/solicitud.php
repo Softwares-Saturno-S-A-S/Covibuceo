@@ -28,11 +28,5 @@ if (isset($_GET['solicitud']) && $_GET['solicitud'] == 'aprobada') {
 }
 
 
-if ($stmt->execute()) {
-// Registro exitoso → redirigir al login
-header("Location: index.php?registro=exito");
-exit;
-} else {
-echo "Error al registrar: " . $stmt->error;
-}
+
 ?>

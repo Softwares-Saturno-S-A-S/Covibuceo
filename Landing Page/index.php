@@ -68,7 +68,7 @@
 
                 <?php
                     if (isset($_GET['registro']) && $_GET['registro'] == 'exito') {
-                    echo '<p style="color: green;">Registro exitoso. Ahora podés iniciar sesión.</p>';
+                    echo '<p style="color: green;">Registro exitoso. Ahora podés iniciar sesión.</p>'; //Mensaje que diga solicitud enviada
                 }
     ?>
 
