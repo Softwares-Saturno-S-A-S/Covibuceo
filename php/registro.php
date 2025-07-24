@@ -26,11 +26,11 @@ if ($resultado->num_rows > 0) {
     header("Location: index.php?error=existe");
     exit;
 } else {
-    $sql_insertar = "INSERT INTO SOLICITUD (CI, Password_hash, Nombre, Apellido, Email, Nro_Telefono, Fecha_Solicitud) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $sql_insertar = "INSERT INTO SOLICITUD (CI, Password_hash, Nombre, Apellido, Email, Nro_Telefono) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = $conexion->prepare($sql_insertar);
-    $stmt->bind_param("ibsssis", $nombre, $email, $claveHasheada, $nombre, $apellido, $telefono, date("d/m/Y H:i"));
+    $stmt->bind_param("ibsssis", $nombre, $email, $claveHasheada, $nombre, $apellido, $telefono);
 
-    $tabla = "SELECT * FROM SOLICITUD";
+    //$tabla = "SELECT * FROM SOLICITUD";
     // $res = $conexion->query($tabla);
     // echo $res;
     if ($stmt->execute()) {
@@ -42,6 +42,14 @@ if ($resultado->num_rows > 0) {
     }
 }
 
+//Si al solicitud es aceptada se redirige a esta parte del archivo
+
+//El backoffice debe tener una linea como esta:
+//header("Location: registro.php?solicitud=aporbada");
+
+    if (isset($_GET['solicitud']) && $_GET['solicitud'] == 'aprobada') {
+        echo '<p style="color: red;"> La cédula y/o el email ya existen.</p>';
+    }
 // Insertar nuevo usuario
 $sql_insertar = "INSERT INTO SOCIO (nombre, , clave) VALUES (?, ?, ?)";
 $stmt = $conexion->prepare($sql_insertar);
