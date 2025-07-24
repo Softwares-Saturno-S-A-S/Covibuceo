@@ -31,8 +31,8 @@ if ($resultado->num_rows > 0) {
     $stmt->bind_param("ibsssis", $nombre, $email, $claveHasheada, $nombre, $apellido, $telefono, date("d/m/Y H:i"));
 
     $tabla = "SELECT * FROM SOLICITUD";
-    $res = $conexion->query($tabla);
-    echo $res;
+    // $res = $conexion->query($tabla);
+    // echo $res;
     if ($stmt->execute()) {
         // Registro exitoso → redirigir al login
         header("Location: index.php?registro=exito");
