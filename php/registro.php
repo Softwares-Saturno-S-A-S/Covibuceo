@@ -1,6 +1,6 @@
 <?php
 // Conexión a la base de datos
-$conexion = new mysqli("localhost", "root", "", "cooperativa");
+$conexion = new mysqli("localhost", "root", "", "Cooperativa");
 if ($conexion->connect_error) {
     die("Error de conexión: " . $conexion->connect_error);
 }
@@ -26,7 +26,7 @@ if ($resultado->num_rows > 0) {
     header("Location: index.php?error=existe");
     exit;
 } else {
-    $sql_insertar = "INSERT INTO SOLICITUD (CI, Password_hash, Nombre, Apellido, Email, Nro_Telefono, Fecha_Solicitud, Estado) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $sql_insertar = "INSERT INTO SOLICITUD (CI, Password_hash, Nombre, Apellido, Email, Nro_Telefono, Fecha_Solicitud) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conexion->prepare($sql_insertar);
     $stmt->bind_param("ibsssis", $nombre, $email, $claveHasheada, $nombre, $apellido, $telefono, date("d/m/Y H:i"));
 

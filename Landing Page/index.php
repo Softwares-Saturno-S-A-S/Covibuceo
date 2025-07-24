@@ -81,7 +81,7 @@
                     </div>
                     <div>
                         <label for="surname">Apellido(s) *</label>
-                        <input name="surmane" type="text" required>
+                        <input name="surname" type="text" required>
                     </div>
                     <div>
                         <label for="ci">Cédula (sin guiones ni puntos) *</label>
