@@ -1,4 +1,4 @@
-        body {
+ body {
             font-family: Arial, sans-serif;
             background-color: #ECECEC;
             color: #333;
@@ -25,6 +25,7 @@
             padding: 30px 10px;
         }
 
+        
         header ul {
             list-style: none;
             margin: 0;
@@ -60,9 +61,14 @@
             text-align: justify;
         }
 
+        .p-center{
+            text-align: center;
+        }
+
         .p1,
         li,
         label,
+        input,
         button {
             font-size: 1.3em;
         }
@@ -90,7 +96,7 @@
         }
 
         form {
-            max-width: 410px;
+            width: 410px;
             margin: auto;
             background-color: #fff;
             padding: 20px;
@@ -162,4 +168,6 @@
             text-align: center;
         }
 
-        
+        .enlaces-right {
+            text-align: right;
+        }
