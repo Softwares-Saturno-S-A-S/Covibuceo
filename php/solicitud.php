@@ -30,7 +30,7 @@ if (isset($_GET['solicitud']) && $_GET['solicitud'] == 'aprobada') {
     $nombre = $fila_solicitud["Nombre"];
     $apellido = $fila_solicitud["Apellido"];
     $email = $fila_solicitud["Email"];
-    $telefono = $fila_solicitud["Nro_Telefono"];
+    $telefonos_string = $fila_solicitud["Nro_Telefono"];
 
     // Insertar los datos en la tabla PERSONA
     
@@ -48,12 +48,13 @@ if (isset($_GET['solicitud']) && $_GET['solicitud'] == 'aprobada') {
 
     // Insertar los datos en la tabla TELEFONO
 
+    $telefonos = explode(',', $telefonos_string); //Tranforma enn array los números de teléfono si hay más de uno separados por coma
+    foreach ($telefonos as $telefono) {
     $sql_insertar_telefono = "INSERT INTO TELEFONO (Nro_Telefono, ID_Socio) VALUES ($telefono, $id_socio)";
     $stmt = $conexion->prepare($sql_insertar_telefono);
     $stmt->execute();
+    }
 
 }
-
-
 
 ?>
