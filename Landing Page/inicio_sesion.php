@@ -7,8 +7,18 @@
     <title>Cooperativa - Inicio de sesión</title>
     <link rel="stylesheet" href="../css/estilos.css">
     <style>
-        .enlaces {
-            text-align: right;
+        body{
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+     
+        main{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
@@ -20,21 +30,50 @@
             <li><a href="index.php">Registrarse</a></li>
         </ul>
     </header>
-    <form action="login.php" method="POST">
-        <h3>Ingreso a mi cuenta</h3>
+    <main>
+
+        <?php
+        if (isset($_GET['registro']) && $_GET['registro'] == 'exito') {
+            echo '<p style="color: green;"> Registro exitoso. Ahora podés iniciar sesión.</p>';
+        }
+        ?>
+    <form action="../php/login.php" method="POST">
+        <h3 class="h3-center">Ingreso a mi cuenta</h3>
         <div>
-            <label for="email">Cédula (sin guiones ni puntos)</label>
-            <input id="email" type="number" required>
+            <label for="email">Email</label>
+            <input name="email" type="text" required>
         </div>
         <div>
             <label for="password">Contraseña</label>
-            <input type="password" id="password" required>
+            <input type="password" name="password" required>
         </div>
-        <div class="enlaces">
+        <div>
+            <?php
+                if (isset($_GET['error'])) {
+                    if ($_GET['error'] == 'invalido') {
+                        echo '<p style="color: red;">Correo o contraseña incorrectos.</p>';
+                    } elseif ($_GET['error'] == 'vacio') {
+                        echo '<p style="color: red;">Debés completar todos los campos.</p>';
+                    }
+                }
+
+                if (isset($_GET['registro']) && $_GET['registro'] == 'exito') {
+                    echo '<p style="color: green;"> Registro exitoso. Ahora podés iniciar sesión.</p>';
+                }   
+            ?>
+        <div>
+            <button class="button-100" type="submit">Iniciar sesión</button>
+        </div>
+        <div class="enlaces-right">
             <a href="">¿Olvidaste tu contraseña?</a>
         </div>
     </form>
-
+    </main>
+    <footer>
+        <p>E-mail: covibuceo@gmail.com.uy</p>
+        <p>Teléfono: 099 923 655</p>
+        <p>Dirección: Gral. Rivera 4000</p>
+    </footer>
 </body>
 
 </html>
