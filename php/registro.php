@@ -23,19 +23,16 @@ $resultado = $stmt->get_result();
 
 if ($resultado->num_rows > 0) {
     // Usuario ya existe → redirigir con error
-    header("Location: index.php?error=existe");
+    header("Location: ../Landing Page/index.php?error=existe");
     exit;
 } else {
     $sql_insertar = "INSERT INTO SOLICITUD (CI, Password_hash, Nombre, Apellido, Email, Nro_Telefono) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = $conexion->prepare($sql_insertar);
     $stmt->bind_param("ibsssi", $ci, $claveHasheada, $nombre, $apellido, $email, $telefono);
 
-    //$tabla = "SELECT * FROM SOLICITUD";
-    // $res = $conexion->query($tabla);
-    // echo $res;
     if ($stmt->execute()) {
         // Registro exitoso → redirigir al login
-        header("Location: index.php?registro=exito");
+        header("Location: ../Landing Page/index.php?registro=exito");
         exit;
     } else {
         echo "Error al registrar: " . $stmt->error;
