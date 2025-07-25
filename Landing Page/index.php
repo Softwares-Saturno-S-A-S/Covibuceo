@@ -25,9 +25,9 @@
 
 <body>
     <header>
-        <a href="index.html"><img src="../img/Logo Cooperativa (3).svg" alt="Logo COVIBUCEO"></a>
+        <a href="index.php"><img src="../img/Logo Cooperativa (3).svg" alt="Logo COVIBUCEO"></a>
         <ul>
-            <li><a href="inicio_sesion.html">Iniciar sesión</a></li>
+            <li><a href="inicio_sesion.php">Iniciar sesión</a></li>
         </ul>
     </header>
     <main>
@@ -60,20 +60,9 @@
                     <li>Realizar con anterioridad un aporte incial de al menos $10.000</li>
                 </ul>
 
-                <?php
-                    if (isset($_GET['error']) && $_GET['error'] == 'existe') {
-                    echo '<p style="color: red;"> La cédula y/o el email ya existen.</p>';
-                }
-                ?>
-
-                <?php
-                    if (isset($_GET['registro']) && $_GET['registro'] == 'exito') {
-                    echo '<p style="color: green;">Registro exitoso. Ahora podés iniciar sesión.</p>'; //Mensaje que diga solicitud enviada
-                }
-    ?>
 
                 <form action="../php/registro.php" method="POST">
-                    <legend>Registrate aquí</legend>
+                    <h3 class="h3-center">Registrate aquí</h3>
                     <p>Los campos que contienen (*) son obligatorios</p>
                     <div>
                         <label for="name">Nombre(s) *</label>
@@ -106,6 +95,15 @@
                         <a href="inicio_sesion.html">¿Ya eres socio? Inicia sesión</a>
                     </div>
                 </form>
+                <?php
+                    if (isset($_GET['error']) && $_GET['error'] == 'existe') {
+                    echo '<p style="color: red; "text-align:center";> La cédula y/o el email ya existen.</p>';
+                }
+
+                    if (isset($_GET['registro']) && $_GET['registro'] == 'exito') {
+                    echo '<p style="color: green; text-align:center";>Solicitud enviada. Se le informará cuando su solicitud sea aceptada</p>'; //Mensaje que diga solicitud enviada
+                }
+                ?>
         </section>
     </main>
     <footer>
