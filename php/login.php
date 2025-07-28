@@ -1,7 +1,7 @@
 <?php
 
-//Esta API sirve para que el usurio inicie sesión a su cuenta, verifica si la combinación de los datos ingresados en el formulario de inicio sesión, email y contraseña, exiten en la tabla "PERSONA"
-//En caso de existir la API redigirá al usuario al sistema interno de la cooperativa, con todas las funcionalidades que este puede realizar 
+//Esta API sirve para que el usuario inicie sesión a su cuenta, verifica si la combinación de los datos ingresados en el formulario de inicio sesión, email y contraseña, existen en la tabla "PERSONA"
+//En caso de existir la API redirigirá al usuario al sistema interno de la cooperativa, con todas las funcionalidades que este puede realizar 
 
 // Conectar a la base de datos
 $conexion = new mysqli("localhost", "root", "", "Cooperativa");
@@ -16,11 +16,11 @@ $claveIngresada = $_POST['password'];
 // Buscar usuario por email
 $sql = "SELECT Password_hash FROM PERSONA WHERE Email = ?"; //El signo de interrogación sirve para indicar que se va a utilizar un parámetro en la consulta
 $stmt = $conexion->prepare($sql); //La base de datos prepara la consulta sql
-$stmt->bind_param("s", $emailIngresado); //Se ingresan el o los parámentros necesarios, en este caso un solo string, representado por la letra "s"
+$stmt->bind_param("s", $emailIngresado); //Se ingresan el o los parámetros necesarios, en este caso un solo string, representado por la letra "s"
 $stmt->execute();
 $resultado = $stmt->get_result();
 
-if ($resultado->num_rows === 1) { //Condicón que se haya encontrado una y solo una fila que coincide con el email ingresado
+if ($resultado->num_rows === 1) { //Condición que se haya encontrado una y solo una fila que coincide con el email ingresado
     $fila = $resultado->fetch_assoc(); 
     $claveGuardada = $fila['Password_hash'];
 
