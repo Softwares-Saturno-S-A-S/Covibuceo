@@ -1,4 +1,8 @@
 <?php
+
+//Esta API sirve para que el usurio inicie sesión a su cuenta, verifica si la combinación de los datos ingresados en el formulario de inicio sesión, email y contraseña, exiten en la tabla "PERSONA"
+//En caso de existir la API redigirá al usuario al sistema interno de la cooperativa, con todas las funcionalidades que este puede realizar 
+
 // Conectar a la base de datos
 $conexion = new mysqli("localhost", "root", "", "Cooperativa");
 if ($conexion->connect_error) {
