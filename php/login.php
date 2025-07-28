@@ -16,7 +16,7 @@ $claveIngresada = $_POST['password'];
 // Buscar usuario por email
 $sql = "SELECT Password_hash FROM PERSONA WHERE Email = ?"; //El signo de interogación sirve para indicar que se va a utilizar un parámetro en la consulta
 $stmt = $conexion->prepare($sql); //La base de datos prepara la consulta sql
-$stmt->bind_param("s", $emailIngresado); //Se ingresan el o los paramentros necesarios, en este caso un solo string, represnetado por la letra "s"
+$stmt->bind_param("s", $emailIngresado); //Se ingresan el o los parámentros necesarios, en este caso un solo string, representado por la letra "s"
 $stmt->execute();
 $resultado = $stmt->get_result();
 
@@ -25,11 +25,11 @@ if ($resultado->num_rows === 1) { //Condicón que se haya encontrado una y solo 
     $claveGuardada = $fila['Password_hash'];
 
     if (password_verify($claveIngresada, $claveGuardada)) { //Verifica que la clave ingresada y la que existe en la base de datos sean iguales
-        $persona = $fila; //Si las claves coinciden se almacena l afila en una avriable persona para iniciar sesión
+        $persona = $fila; //Si las claves coinciden se almacena la fila en una variable "persona" para iniciar sesión
         
         session_start();
-            $_SESSION['ID'] = $persona['ID']; //Ingresar el id en la sesión
-            $_SESSION['Nombre'] = $persona['Nombre']; //Ingresar el nombre en la sesión (opcional)
+            $_SESSION['ID'] = $persona['ID']; //Ingresar el id de socio en la sesión
+            $_SESSION['Nombre'] = $persona['Nombre']; //Ingresar el nombre de la persona en la sesión (opcional)
 
         header("Location: inicio.php"); //Dirige a la página de inicio
         exit;
