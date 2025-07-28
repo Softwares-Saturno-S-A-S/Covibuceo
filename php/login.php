@@ -14,7 +14,7 @@ $emailIngresado = $_POST['email'];
 $claveIngresada = $_POST['password'];
 
 // Buscar usuario por email
-$sql = "SELECT Password_hash FROM PERSONA WHERE Email = ?"; //El signo de interogación sirve para indicar que se va a utilizar un parámetro en la consulta
+$sql = "SELECT Password_hash FROM PERSONA WHERE Email = ?"; //El signo de interrogación sirve para indicar que se va a utilizar un parámetro en la consulta
 $stmt = $conexion->prepare($sql); //La base de datos prepara la consulta sql
 $stmt->bind_param("s", $emailIngresado); //Se ingresan el o los parámentros necesarios, en este caso un solo string, representado por la letra "s"
 $stmt->execute();
