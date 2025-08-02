@@ -86,7 +86,10 @@
                     </div>
                     <div>
                         <label for="password">Contraseña</label>
-                        <input name="password" type="text" required>
+                        <div id="password">
+                            <input name="password" type="password" required>
+                            <button class="toggle-password" type="button" onclick="cambioContraseña()">v</button> <!-- Se agrega "type=button" para que no se envíe el formulario al hacer click en el botón -->
+                        </div>
                     </div>
                     <div>
                         <button class="button-100" type="submit">Enviar</button>
@@ -111,6 +114,21 @@
         <p>Teléfono: 099 923 655</p>
         <p>Dirección: Gral. Rivera 4000</p>
     </footer>
+
+    <script>
+        function cambioContraseña() {
+            const passwordInput = document.querySelector('input[name="password"]');
+            const toggleButton = document.querySelector('.toggle-password');
+
+            if (passwordInput.type === 'password') { // Comprueba si el input es de tipo password, es decir si oculta lo ingresado en el campo.
+                passwordInput.type = 'text'; // Cambia el tipo a texto para mostrar la contraseña
+                toggleButton.textContent = 'e'; // Cambia el texto a "e" que representa el icono de "esconder"
+            } else {
+                passwordInput.type = 'password'; // Cambia el tipo a password para ocultar la contraseña
+                toggleButton.textContent = 'v'; // Cambia el texto a "v" que representa el icono de "ver"
+            }
+        }
+    </script>
 </body>
 
 </html>
