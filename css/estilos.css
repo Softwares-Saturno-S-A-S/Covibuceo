@@ -100,7 +100,7 @@
             text-align: center;
         }
 
-        form {
+        form:not(.no-styles) {
             width: 40%;
             max-width: 500px;
             margin: auto;
@@ -182,10 +182,15 @@
         .pago-pendiente,
         .jornada {
             background-color: #C5C5C5;
+            margin-bottom: 15px;
+            padding: 15px;
+
+        }
+
+        .sub-1{
             display: flex;
             justify-content: space-between;
             align-items: center;
-
         }
 
         .revisados {
