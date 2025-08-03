@@ -45,14 +45,16 @@
                 $fecha = date("d/m/Y H:i", strtotime($fecha_no_format)); // La función "strototime()" convierte la cadena de fecha a un numero entero, el cual puede ser interpretado correctamente por la función "date()"
                 // Se construye el HTML para cada tupla
                 echo "<div class='solicitud'>";
+                echo "<div>";
                 echo "<p class='p1'>" . $fecha . "</p>"; // Muestra la fecha de solicitud. htmlspecialchars se usa para codificar carácteres especiales que tienen una función específica en HTML, y transformarlos en texto. Evitando problemas de seguridad al mostrar datos.
-                echo "<div class='sub-1'>";
                 echo "<p>" . htmlspecialchars($tupla["Nombre"]) . " " . htmlspecialchars($tupla["Apellido"]) ." ha solicitado asociarse a la cooperativa</p>";
+                echo "</div>";
+                echo "<div>";
                 echo "<form class='no-styles' action='../php/solicitud.php' method='POST'>"; // Se crea un formulario para aceptar o rechazar la solicitud
                 echo "<button type='submit' name='aceptar' class='button-size-green'>Aceptar</button>"; // Botón para aceptar la solicitud
                 echo "<button type='submit' name='rechazar' class='button-size-red'>Rechazar</button>"; // Botón para rechazar la solicitud
                 echo "</form>";
-                echo "</div>"; // Cierra el div de sub-1
+                echo "</div>";
                 echo "</div>"; // Cierra el div de solicitud
             }
         } else {
