@@ -39,7 +39,7 @@
         }
 
         header ul li {
-            margin-left: 25px;
+            margin-left: 35px;
         }
 
         header a {
@@ -164,6 +164,11 @@
             background-color: #D11414;
             border-radius: 40px;
             padding: 10px 40px;
+        }
+
+        .botones{
+            display: flex;
+            align-items: center;
         }
 
         .toggle-password {

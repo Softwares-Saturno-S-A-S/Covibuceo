@@ -49,10 +49,16 @@
                 echo "<p class='p1'>" . $fecha . "</p>"; // Muestra la fecha de solicitud. htmlspecialchars se usa para codificar carácteres especiales que tienen una función específica en HTML, y transformarlos en texto. Evitando problemas de seguridad al mostrar datos.
                 echo "<p>" . htmlspecialchars($tupla["Nombre"]) . " " . htmlspecialchars($tupla["Apellido"]) ." ha solicitado asociarse a la cooperativa</p>";
                 echo "</div>";
-                echo "<div>";
+                echo "<div class='botones'>"; // Se crea un div para las acciones de aceptar o rechazar la solicitud
                 echo "<form class='no-styles' action='../php/solicitud.php' method='POST'>"; // Se crea un formulario para aceptar o rechazar la solicitud
-                echo "<button type='submit' name='aceptar' class='button-size-green'>Aceptar</button>"; // Botón para aceptar la solicitud
-                echo "<button type='submit' name='rechazar' class='button-size-red'>Rechazar</button>"; // Botón para rechazar la solicitud
+                echo "<input type='hidden' name='solicitud' value='aprobada'>"; // Un input de tipo hidden, no se ve, pero tiene un valor asignado, el cual se va a extraer de este formulario en el archivo "solicitud.php"
+                echo "<input type='hidden' name='ID' value='" . htmlspecialchars($tupla['ID_Solicitud']) . "'>"; // Guarda el ID de la solicitud
+                echo "<button type='submit' class='button-size-green'>Aceptar</button>"; // Botón para aceptar la solicitud
+                echo "</form>";
+                echo "<form class='no-styles' action='../php/solicitud.php' method='POST'";
+                echo "<input type='hidden' name='solicitud' value='rechazada'>"; // Un input de tipo hidden, no se ve, pero tiene un valor asignado, el cual se va a extraer de este formulario en el archivo "solicitud.php"
+                echo "<input type='hidden' name='ID' value='" . htmlspecialchars($tupla['ID_Solicitud']) . "'>"; // Guarda el ID de la solicitud
+                echo "<button type='submit' class='button-size-red'>Rechazar</button>"; // Botón para rechazar la solicitud
                 echo "</form>";
                 echo "</div>";
                 echo "</div>"; // Cierra el div de solicitud
