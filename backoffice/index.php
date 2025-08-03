@@ -32,7 +32,7 @@
             die("Error de conexión: " . $conexion->connect_error);
         }
 
-        $consulta = "SELECT * FROM SOLICITUD WHERE Estado = 'Pendiente' ORDER BY Fecha_Solicitud"; // Selecciona todas las solicitudes pendientes y las ordena por fecha de solicitud
+        $consulta = "SELECT * FROM SOLICITUD WHERE Estado_Solicitud = 'Pendiente' ORDER BY Fecha_Solicitud"; // Selecciona todas las solicitudes pendientes y las ordena por fecha de solicitud
         $resultado = $conexion->query($consulta); // Se establece una variable que guarda el resultado de la consulta
 
         echo "<section class='solicitudes-pendientes'>"; // Se crea una sección para las solicitudes pendiente

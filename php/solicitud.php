@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         switch ($solicitud) {
             case "aprobada":
                 // Actualizar el estado de la solicitud a 'Aprobada'
-                $sql_actualizar = "UPDATE SOLICITUD SET Estado = 'Aprobado' WHERE ID_Solicitud = ?";
+                $sql_actualizar = "UPDATE SOLICITUD SET Estado_Solicitud = 'Aprobada' WHERE ID_Solicitud = ?";
                 $stmt = $conexion->prepare($sql_actualizar); // Utiliza una sentencia preparada para evitar inyecciones SQL
                 $stmt->bind_param("i", $ID);
                 $stmt->execute();
@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             case "rechazada":
                 // Actualizar el estado de la solicitud a 'Rechazada'
-                $sql_actualizar = "UPDATE SOLICITUD SET Estado = 'Rechazado' WHERE ID_Solicitud = ?";
+                $sql_actualizar = "UPDATE SOLICITUD SET Estado_Solicitud = 'Rechazada' WHERE ID_Solicitud = ?";
                 $stmt = $conexion->prepare($sql_actualizar);
                 $stmt->bind_param("i", $ID);
                 $stmt->execute();
