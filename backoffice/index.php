@@ -24,19 +24,46 @@
         </ul>
     </header>
     <main>
-        <section class="solicitud">
-                <div class="sub1">
-                    <p>{Fecha y hora del registro}</p>
-                    <p class="p1">{Nombre de la persona} ha solicitado asociarse a la cooperativa</p>
-                    <p>Cédula: {Cédula de la persona}</p>
-                    <p>Teléfono: {Teléfono de la persona}</p>
-                    <p>Correo: {Correo de la persona}</p>
-                    <p>Comprobante de Ingresos: {Archivo de recibo de suledos}</p>
-                </div>
-                <div class="sub2">
-                    <button class="button-size-green">Aceptar</button>
-                    <button class="button-size-red">Rechazar</button>
-                </div>
+        <?php
+
+        // Conectar a la base de datos
+        $conexion = new mysqli("localhost", "root", "", "Cooperativa");
+        if ($conexion->connect_error) {
+            die("Error de conexión: " . $conexion->connect_error);
+        }
+
+        $consulta = "SELECT * FROM SOLICITUD WHERE Estado = 'Pendiente' ORDER BY Fecha_Solicitud"; // Selecciona todas las solicitudes pendientes y las ordena por fecha de solicitud
+        $resultado = $conexion->query($consulta); // Se establece una variable que guarda el resultado de la consulta
+
+        echo "<section class='solicitudes-pendientes'>"; // Se crea una sección para las solicitudes pendiente
+
+        if ($resultado->num_rows > 0) { // Verifica si hay resultados
+            // Se ejecuta el siguiente código por cada fila que exista en el resultado de la consulta
+            while ($tupla = $resultado->fetch_assoc()) { // Convierte cada fila del resultado en un array asociativo
+                // Cambiar el formato de la fecha para la visualización
+                $fecha_no_format = $tupla["Fecha_Solicitud"]; 
+                $fecha = date("d/m/Y H:i", strtotime($fecha_no_format)); // La función "strototime()" convierte la cadena de fecha a un numero entero, el cual puede ser interpretado correctamente por la función "date()"
+                // Se construye el HTML para cada tupla
+                echo "<div class='solicitud'>";
+                echo "<p class='p1'>" . $fecha . "</p>"; // Muestra la fecha de solicitud. htmlspecialchars se usa para codificar carácteres especiales que tienen una función específica en HTML, y transformarlos en texto. Evitando problemas de seguridad al mostrar datos.
+                echo "<div class='sub-1'>";
+                echo "<p>" . htmlspecialchars($tupla["Nombre"]) . " " . htmlspecialchars($tupla["Apellido"]) ." ha solicitado asociarse a la cooperativa</p>";
+                echo "<form class='no-styles' action='../php/solicitud.php' method='POST'>"; // Se crea un formulario para aceptar o rechazar la solicitud
+                echo "<button type='submit' name='aceptar' class='button-size-green'>Aceptar</button>"; // Botón para aceptar la solicitud
+                echo "<button type='submit' name='rechazar' class='button-size-red'>Rechazar</button>"; // Botón para rechazar la solicitud
+                echo "</form>";
+                echo "</div>"; // Cierra el div de sub-1
+                echo "</div>"; // Cierra el div de solicitud
+            }
+        } else {
+            echo "<p>No hay solicitudes pendientes.</p>"; // Mensaje si no hay solicitudes pendientes
+        }
+
+        echo "</section>"; // Cierra la sección de solicitudes pendientes
+
+        $conexion->close(); // Cierra la conexión a la base de datos
+        ?>
+
     </main>
 </body>
 
