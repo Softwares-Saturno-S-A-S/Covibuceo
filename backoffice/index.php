@@ -35,7 +35,8 @@
         $consulta = "SELECT * FROM SOLICITUD WHERE Estado_Solicitud = 'Pendiente' ORDER BY Fecha_Solicitud"; // Selecciona todas las solicitudes pendientes y las ordena por fecha de solicitud
         $resultado = $conexion->query($consulta); // Se establece una variable que guarda el resultado de la consulta
 
-        echo "<section class='solicitudes-pendientes'>"; // Se crea una sección para las solicitudes pendiente
+        echo "<section class='solicitudes-pendientes'>"; // Se crea una sección para las solicitudes pendientes
+        echo "<h3>Solicitudes Pendientes</h3>"; // Título para la sección de solicitudes pendientes
 
         if ($resultado->num_rows > 0) { // Verifica si hay resultados
             // Se ejecuta el siguiente código por cada fila que exista en el resultado de la consulta
@@ -64,10 +65,60 @@
                 echo "</div>"; // Cierra el div de solicitud
             }
         } else {
-            echo "<p>No hay solicitudes pendientes.</p>"; // Mensaje si no hay solicitudes pendientes
+            echo "<p>No hay solicitudes pendientes</p>"; // Mensaje si no hay solicitudes pendientes
         }
 
         echo "</section>"; // Cierra la sección de solicitudes pendientes
+
+        $consulta_aprobada = "SELECT * FROM SOLICITUD WHERE Estado_Solicitud = 'Aprobada' ORDER BY Fecha_Solicitud"; // Selecciona todas las solicitudes aprobadas y las ordena por fecha de solicitud
+        $resultado_aprobada = $conexion->query($consulta_aprobada); // Se establece una variable que guarda el resultado de la consulta
+
+        echo "<section class='solicitudes-pendientes'>"; // Se crea una sección para las solicitudes aprobadas
+        echo "<h3>Solicitudes Aprobadas</h3>"; // Título para la sección de solicitudes aprobadas
+
+        if ($resultado_aprobada->num_rows > 0) { // Verifica si hay resultados
+            // Se ejecuta el siguiente código por cada fila que exista en el resultado de la consulta
+            while ($tupla = $resultado_aprobada->fetch_assoc()) { // Convierte cada fila del resultado en un array asociativo
+                // Cambiar el formato de la fecha para la visualización
+                $fecha_no_format = $tupla["Fecha_Solicitud"]; 
+                $fecha = date("d/m/Y H:i", strtotime($fecha_no_format)); // La función "strototime()" convierte la cadena de fecha a un numero entero, el cual puede ser interpretado correctamente por la función "date()"
+                // Se construye el HTML para cada tupla
+                echo "<div class='solicitud'>";
+                echo "<div>";
+                echo "<p class='p1'>" . $fecha . "</p>"; // Muestra la fecha de solicitud. htmlspecialchars se usa para codificar carácteres especiales que tienen una función específica en HTML, y transformarlos en texto. Evitando problemas de seguridad al mostrar datos.
+                echo "<p>" . htmlspecialchars($tupla["Nombre"]) . " " . htmlspecialchars($tupla["Apellido"]) ." fue aceptado/a</p>";
+                echo "</div>";
+                echo "</div>"; // Cierra el div de solicitud
+            }
+        } else {
+            echo "<p>Todavía no hay solicitude aceptadas</p>"; // Mensaje si no hay solicitudes pendientes
+        }
+
+        echo "</section>"; // Cierra la sección de solicitudes aprobadas
+
+        $consulta_rechazada = "SELECT * FROM SOLICITUD WHERE Estado_Solicitud = 'Rechazada' ORDER BY Fecha_Solicitud"; // Selecciona todas las solicitudes rechazadas y las ordena por fecha de solicitud
+        $resultado_rechazada = $conexion->query($consulta_rechazada); // Se establece una variable que guarda el resultado de la consulta
+        
+        echo "<section class='solicitudes-pendientes'>"; // Se crea una sección para las solicitudes rechazadas
+        echo "<h3>Solicitudes Rechazadas</h3>"; // Título para la sección de solicitudes rechazadas
+
+        if ($resultado_rechazada->num_rows > 0) { // Verifica si hay resultados
+            // Se ejecuta el siguiente código por cada fila que exista en el resultado de la consulta
+            while ($tupla = $resultado_rechazada->fetch_assoc()) { // Convierte cada fila del resultado en un array asociativo
+                // Cambiar el formato de la fecha para la visualización
+                $fecha_no_format = $tupla["Fecha_Solicitud"]; 
+                $fecha = date("d/m/Y H:i", strtotime($fecha_no_format)); // La función "strototime()" convierte la cadena de fecha a un numero entero, el cual puede ser interpretado correctamente por la función "date()"
+                // Se construye el HTML para cada tupla
+                echo "<div class='solicitud'>";
+                echo "<div>";
+                echo "<p class='p1'>" . $fecha . "</p>"; // Muestra la fecha de solicitud. htmlspecialchars se usa para codificar carácteres especiales que tienen una función específica en HTML, y transformarlos en texto. Evitando problemas de seguridad al mostrar datos.
+                echo "<p>" . htmlspecialchars($tupla["Nombre"]) . " " . htmlspecialchars($tupla["Apellido"]) ." fue rechazado/a</p>";
+                echo "</div>";
+                echo "</div>"; // Cierra el div de solicitud
+            }
+        } else {
+            echo "<p>Todavía no hay solicitudes rechazadas</p>"; // Mensaje si no hay solicitudes pendientes
+        }
 
         $conexion->close(); // Cierra la conexión a la base de datos
         ?>
