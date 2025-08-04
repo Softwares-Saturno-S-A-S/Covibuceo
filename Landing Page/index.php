@@ -9,12 +9,13 @@
     <style>
         .content_1 {
             gap: 40px;
-            padding: 15px;
             display: flex;
             justify-content: center;
             align-items: center;
             background: #fff;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            padding: 15px;
         }
 
         .content_1 p{
@@ -34,7 +35,7 @@
         <section id="introduccion">
             <h1>Bienvenido a COVIBUCEO</h1>
             <h2>Cooperativa de vivienda y ayuda mutua del Buceo</h2>
-            <div class="content_1">
+            <div class="content_1 classic">
                     <img src="../img/vivienda.png" alt="Imagen de la coopertiva">
                     <p class="p1">Somos una cooperativa de vivienda y ayuda mutua creada en 2017, instalada en el barrio del Buceo,
                         Montevideo. Nuestra organización surge del compromiso colectivo por construir un hogar digno,
