@@ -117,7 +117,7 @@
                 echo "</div>"; // Cierra el div de solicitud
             }
         } else {
-            echo "<p>Todavía no hay solicitudes rechazadas</p>"; // Mensaje si no hay solicitudes pendientes
+            echo "<p>Todavía no hay solicitudes rechazads</p>"; // Mensaje si no hay solicitudes pendientes
         }
 
         $conexion->close(); // Cierra la conexión a la base de datos
