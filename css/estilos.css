@@ -1,3 +1,15 @@
+:root {
+    --color-1: #40752B;
+    --color-2: #1A6C44;
+    --color-3: #D11414;
+    --color-4: #333;
+    --color-5: #ECECEC;
+    --color-6: #fff;
+
+    --border-rad: 15px;
+    --padding: 15px;
+}
+
 @font-face {
     font-family: 'icons';
     src: url(../fonts/iconos.ttf);
@@ -5,8 +17,8 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #ECECEC;
-    color: #333;
+    background-color: var(--color-5);
+    color: var(--color-4);
     margin: 0;
     padding: 0;
 }
@@ -16,8 +28,8 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #40752B;
-    color: white;
+    background-color: var(--color-1);
+    color: var(--color-6);
     padding: 15px;
 }
 
@@ -29,6 +41,24 @@ header {
 
 main {
     padding: 30px 10px;
+}
+
+.display-flex {
+    gap: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.display-flex p {
+    line-height: 1.6;
+}
+
+.classic {
+    background: var(--color-6);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-rad);
+    padding: var(--padding);
 }
 
 header ul {
@@ -43,7 +73,7 @@ header ul li {
 }
 
 header a {
-    color: white;
+    color: var(--color-6);
 }
 
 a {
@@ -56,22 +86,12 @@ header img {
     width: 100px;
 }
 
-section {
-    border-radius: 5px;
-    padding: 10px 15px;
-}
-
-.classic{
-    border-radius: 15px;
-    padding: 15px;
-}
-
 p {
     font-size: 1.1em;
     text-align: justify;
 }
 
-.p-center{
+.p-center {
     text-align: center;
 }
 
@@ -101,7 +121,7 @@ h3 {
     font-size: 1.5em;
 }
 
-.h3-center{
+.h3-center {
     text-align: center;
 }
 
@@ -109,9 +129,9 @@ form:not(.no-styles) {
     width: 40%;
     max-width: 500px;
     margin: auto;
-    background-color: #fff;
+    background-color: var(--color-6);
     padding: 40px;
-    border-radius: 5px;
+    border-radius: var(--border-rad);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
 }
@@ -135,19 +155,19 @@ input {
     font-size: medium;
 }
 
-input[name="password"]{
-    padding-right: 80px; 
+input[name="password"] {
+    padding-right: 80px;
     vertical-align: middle;
 }
 
-#password{
+#password {
     display: flex;
     align-items: center;
 }
 
 
 button {
-    color: white;
+    color: var(--color-6);
     border: none;
     cursor: pointer;
 }
@@ -160,18 +180,18 @@ button {
 }
 
 .button-size-green {
-    background-color: #1A6C44;
+    background-color: var(--color-2);
     border-radius: 40px;
     padding: 10px 40px;
 }
 
 .button-size-red {
-    background-color: #D11414;
+    background-color: var(--color-3);
     border-radius: 40px;
     padding: 10px 40px;
 }
 
-.botones{
+.botones {
     display: flex;
     align-items: center;
 }
@@ -200,7 +220,7 @@ button {
 
 }
 
-.sub-1{
+.sub-1 {
     display: flex;
     justify-content: space-between;
     align-items: center;

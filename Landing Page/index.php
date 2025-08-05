@@ -18,8 +18,14 @@
             padding: 15px;
         }
 
-        .content_1 p{
+        .content_1 p {
             line-height: 1.6;
+        }
+
+        .classic {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 15px;
         }
     </style>
 </head>
@@ -36,17 +42,17 @@
             <h1>Bienvenido a COVIBUCEO</h1>
             <h2>Cooperativa de vivienda y ayuda mutua del Buceo</h2>
             <div class="content_1 classic">
-                    <img src="../img/vivienda.png" alt="Imagen de la coopertiva">
-                    <p class="p1">Somos una cooperativa de vivienda y ayuda mutua creada en 2017, instalada en el barrio del Buceo,
-                        Montevideo. Nuestra organización surge del compromiso colectivo por construir un hogar digno,
-                        accesible y sostenible para todas las familias
-                        que la integran. Nuestra comunidad tiene como objetivo aparte de construir viviendas, fortalecer
-                        vínculos humanos. A través del esfuerzo en conjunto y la toma de decisiones democráticas,
-                        aspiramos a superar las barreras que impone el acceso individual a la vivienda. Actualmente
-                        contamos con más
-                        de 100 socios y 22 viviendas construidas en colaboración. Trabajamos día a día con la esperanza
-                        de que a futuro podamos seguir brindando un
-                        hogar digno a quienes lo necesistan.</p>
+                <img src="../img/vivienda.png" alt="Imagen de la coopertiva">
+                <p class="p1">Somos una cooperativa de vivienda y ayuda mutua creada en 2017, instalada en el barrio del Buceo,
+                    Montevideo. Nuestra organización surge del compromiso colectivo por construir un hogar digno,
+                    accesible y sostenible para todas las familias
+                    que la integran. Nuestra comunidad tiene como objetivo aparte de construir viviendas, fortalecer
+                    vínculos humanos. A través del esfuerzo en conjunto y la toma de decisiones democráticas,
+                    aspiramos a superar las barreras que impone el acceso individual a la vivienda. Actualmente
+                    contamos con más
+                    de 100 socios y 22 viviendas construidas en colaboración. Trabajamos día a día con la esperanza
+                    de que a futuro podamos seguir brindando un
+                    hogar digno a quienes lo necesistan.</p>
             </div>
         </section>
         <section id="registro">
@@ -100,11 +106,11 @@
                     </div>
                 </form>
                 <?php
-                    if (isset($_GET['error']) && $_GET['error'] == 'existe') {
+                if (isset($_GET['error']) && $_GET['error'] == 'existe') {
                     echo '<p style="color: red; "text-align:center";> La cédula y/o el email ya existen.</p>';
                 }
 
-                    if (isset($_GET['registro']) && $_GET['registro'] == 'exito') {
+                if (isset($_GET['registro']) && $_GET['registro'] == 'exito') {
                     echo '<p style="color: green; text-align:center";>Solicitud enviada. Se le informará cuando su solicitud sea aceptada</p>'; //Mensaje que diga solicitud enviada
                 }
                 ?>
