@@ -31,13 +31,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $nombre = $fila_solicitud["Nombre"];
                 $apellido = $fila_solicitud["Apellido"];
                 $email = $fila_solicitud["Email"];
+                $clave = $fila_solicitud["Password_hash"];
                 $telefonos_string = $fila_solicitud["Nro_Telefono"];
 
 
                 // Insertar en la tabla SOCIO y PERSONA
-                $sql_insertar_persona = "INSERT INTO PERSONA (CI, Nombre, Apellido, Email) VALUES (?, ?, ?, ?)"; // Hay que analizar como se va a asignar la vivienda
+                $sql_insertar_persona = "INSERT INTO PERSONA (CI, Nombre, Apellido, Email, Password_hash) VALUES (?, ?, ?, ?, ?)"; // Hay que analizar como se va a asignar la vivienda
                 $stmt = $conexion->prepare($sql_insertar_persona);
-                $stmt->bind_param("isss", $ci, $nombre, $apellido, $email);
+                $stmt->bind_param("isssb", $ci, $nombre, $apellido, $email, $clave);
                 $stmt->execute();
 
                 $sql_insertar_socio = "INSERT INTO SOCIO (CI) VALUES (?)";
