@@ -24,9 +24,8 @@
 			"installDirectlyFromGitHubRelease": true,
 			"version": "latest"
 		}
-	},
+	}
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "sudo chown -R www-data:www-data /var/www/html && sudo rm -rf /etc/apache2/sites-enabled/* && sudo ln -s \"$(pwd)\" /var/www/html && sudo docker-php-ext-install mysqli && sudo docker-php-ext-enable mysqli && sudo sed -i 's/:80>/:8080>/' /etc/apache2/sites-available/000-default.conf && sudo sed -i 's/Listen 80/Listen 8080/' /etc/apache2/ports.conf && sudo sed -i '/DocumentRoot/a <Directory \"/var/www/html\">\\n\\tOptions Indexes FollowSymLinks\\n\\tAllowOverride All\\n\\tRequire all granted\\n</Directory>' /etc/apache2/sites-available/000-default.conf && sudo a2enmod rewrite && sudo service apache2 restart"
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
 }
