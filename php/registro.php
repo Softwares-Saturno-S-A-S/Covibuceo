@@ -4,7 +4,13 @@
 //Una vez que el admin apruebe una solicitud, los datos correspondientes a esa tupla, serán enviados a las tablas que guardan los datos de los socio, siendo estas "SOCIO", "PERSONA" y "TELEFONO"
 
 // Conexión a la base de datos
-$conexion = new mysqli("localhost", "root", "", "Cooperativa");
+$db_host = getenv('DB_HOST');
+$db_user = getenv('DB_USER');
+$db_pass = getenv('DB_PASS');
+$db_name = getenv('DB_NAME');
+
+$conexion = new mysqli($db_host, $db_user, $db_pass, $db_name);
+
 if ($conexion->connect_error) {
     die("Error de conexión: " . $conexion->connect_error);
 }
