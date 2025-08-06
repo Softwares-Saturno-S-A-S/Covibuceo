@@ -4,16 +4,11 @@
 //Una vez que el admin apruebe una solicitud, los datos correspondientes a esa tupla, serán enviados a las tablas que guardan los datos de los socio, siendo estas "SOCIO", "PERSONA" y "TELEFONO"
 
 // Conexión a la base de datos
-$db_host = getenv('DB_HOST');
-$db_user = getenv('DB_USER');
-$db_pass = getenv('DB_PASS');
-$db_name = getenv('DB_NAME');
 
-$conexion = new mysqli($db_host, $db_user, $db_pass, $db_name);
-
-if ($conexion->connect_error) {
-    die("Error de conexión: " . $conexion->connect_error);
-}
+$conexion = new mysqli('localhost', 'root', '', 'cooperativa');
+    if ($conexion->connect_error) {
+        die("Error de conexión: " . $conexion->connect_error);
+    }
 
 // Obtener datos del formulario
 $nombre = $_POST['name'];
@@ -21,6 +16,8 @@ $apellido = $_POST['surname'];
 $ci = $_POST['ci'];
 $telefono = $_POST['tel'];
 $email = $_POST['email'];
+$clave = $_POST['password'];
+$clave_hash = password_hash($clave, PASSWORD_DEFAULT); // Hashear la contraseña
 
 // Verificar si ya existe ese email o cédula
 $sql_verificar = "SELECT * FROM PERSONA WHERE Email = ? OR CI = ?";
@@ -34,13 +31,13 @@ if ($resultado->num_rows > 0) {
     header("Location: ../Landing Page/index.php?error=existe");
     exit;
 } else {
-    $sql_insertar = "INSERT INTO SOLICITUD (CI, Nombre, Apellido, Email, Nro_Telefono) VALUES (?, ?, ?, ?, ?)";
+    $sql_insertar = "INSERT INTO SOLICITUD (CI, Nombre, Apellido, Email, Nro_Telefono, Password_hash) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = $conexion->prepare($sql_insertar);
-    $stmt->bind_param("issss", $ci, $nombre, $apellido, $email, $telefono);
+    $stmt->bind_param("issssb", $ci, $nombre, $apellido, $email, $telefono, $clave_hash);
 
     if ($stmt->execute()) {
         // Registro exitoso → redirigir al login
-        header("Location: ../Landing Page/index.php?registro=exito");
+        header("Location: ../Landing Page/index_aceptado.php?email=" . urlencode($email));
         exit;
     } else {
         echo "Error al registrar: " . $stmt->error;

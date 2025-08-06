@@ -6,28 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COVIBUCEO</title>
     <link rel="stylesheet" href="../css/estilos.css">
-    <style>
-        .content_1 {
-            gap: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 15px;
-            padding: 15px;
-        }
-
-        .content_1 p {
-            line-height: 1.6;
-        }
-
-        .classic {
-            background-color: #fff;
-            padding: 15px;
-            border-radius: 15px;
-        }
-    </style>
 </head>
 
 <body>
@@ -41,9 +19,9 @@
         <section id="introduccion">
             <h1>Bienvenido a COVIBUCEO</h1>
             <h2>Cooperativa de vivienda y ayuda mutua del Buceo</h2>
-            <div class="content_1 classic">
+            <div class="display-flex">
                 <img src="../img/vivienda.png" alt="Imagen de la coopertiva">
-                <p class="p1">Somos una cooperativa de vivienda y ayuda mutua creada en 2017, instalada en el barrio del Buceo,
+                <p class="p1 spaced">Somos una cooperativa de vivienda y ayuda mutua creada en 2017, instalada en el barrio del Buceo,
                     Montevideo. Nuestra organización surge del compromiso colectivo por construir un hogar digno,
                     accesible y sostenible para todas las familias
                     que la integran. Nuestra comunidad tiene como objetivo aparte de construir viviendas, fortalecer
@@ -69,6 +47,11 @@
 
 
                 <form action="../php/registro.php" method="POST">
+                    <?php
+                if (isset($_GET['error']) && $_GET['error'] == 'existe') {
+                    echo '<p style="color: red; "text-align:center";> La cédula y/o el email ya existen.</p>';
+                }
+                ?>
                     <h3 class="h3-center">Registrate aquí</h3>
                     <p>Los campos que contienen (*) son obligatorios</p>
                     <div>
@@ -105,15 +88,6 @@
                         <a href="inicio_sesion.html">¿Ya eres socio? Inicia sesión</a>
                     </div>
                 </form>
-                <?php
-                if (isset($_GET['error']) && $_GET['error'] == 'existe') {
-                    echo '<p style="color: red; "text-align:center";> La cédula y/o el email ya existen.</p>';
-                }
-
-                if (isset($_GET['registro']) && $_GET['registro'] == 'exito') {
-                    echo '<p style="color: green; text-align:center";>Solicitud enviada. Se le informará cuando su solicitud sea aceptada</p>'; //Mensaje que diga solicitud enviada
-                }
-                ?>
         </section>
     </main>
     <footer>
