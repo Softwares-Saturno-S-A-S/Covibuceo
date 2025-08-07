@@ -28,7 +28,7 @@ $resultado = $stmt->get_result();
 
 if ($resultado->num_rows > 0) {
     // Usuario ya existe → redirigir con error
-    header("Location: ../Landing Page/index.php?error=existe");
+    header("Location: ../Landing Page/registro-form.php?error=existe");
     exit;
 } else {
     $sql_insertar = "INSERT INTO SOLICITUD (CI, Nombre, Apellido, Email, Nro_Telefono, Password_hash) VALUES (?, ?, ?, ?, ?, ?)";
