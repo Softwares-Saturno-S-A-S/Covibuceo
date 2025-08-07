@@ -17,9 +17,25 @@
     </header>
     <main>
         <section id="introduccion">
-            <h1>Bienvenido a COVIBUCEO</h1>
+            <div class="slider">
+                <figure>
+                    <img src="../img/covibuceo_slider/covibuceo 1.png" alt="Imagen de la cooperativa">
+                    <img src="../img/covibuceo_slider/covibuceo 2.png" alt="Imagen de la cooperativa">
+                    <img src="../img/covibuceo_slider/covibuceo 4.png" alt="Imagen de la cooperativa">
+                    <img src="../img/covibuceo_slider/covibuceo 6.png" alt="Imagen de la cooperativa">
+                    <img src="../img/covibuceo_slider/covibuceo 5.png" alt="Imagen de la cooperativa">
+                </figure>
+            </div>
+            <div class="texto-slider">
+            <h1 class="big">¡Bienvenido a COVIBUCEO!</h1>
             <h2>Cooperativa de vivienda y ayuda mutua del Buceo</h2>
-            <div class="display-flex">
+            <p>Esta es la página oficial de COVIBUCEO. Aquí podrás ver información sobre nuestra cooperativa, nuestras viviendas y normas. Tienes también nuestro contacto por cualquier consulta.</p>
+            <p>Puedes pedir para asociarte directamente desde esta página:</p>
+            <form action="registro-form.php" class="no-styles">
+            <button class="button-size button-wrap orange">Régistrate ahora</button>
+            </form>
+</div>
+            <!-- <div class="display-flex">
                 <img src="../img/vivienda.png" alt="Imagen de la coopertiva">
                 <p class="p1 spaced">Somos una cooperativa de vivienda y ayuda mutua creada en 2017, instalada en el barrio del Buceo,
                     Montevideo. Nuestra organización surge del compromiso colectivo por construir un hogar digno,
@@ -31,11 +47,11 @@
                     de 100 socios y 22 viviendas construidas en colaboración. Trabajamos día a día con la esperanza
                     de que a futuro podamos seguir brindando un
                     hogar digno a quienes lo necesistan.</p>
-            </div>
+            </div> -->
         </section>
         <section id="registro">
-            <h1>¿Quieres asociarte?</h1>
-            <h3>Registrate aquí para formar parte de nuestra cooperativa</h4>
+            <h1 class="center">¿Quieres asociarte?</h1>
+            <h3 class="center">Registrate aquí para formar parte de nuestra cooperativa</h4>
                 <p>Para ingresar debes:</p>
                 <ul>
                     <li>Ser residente permanente en Uruguay</li>
@@ -52,7 +68,7 @@
                     echo '<p style="color: red; "text-align:center";> La cédula y/o el email ya existen.</p>';
                 }
                 ?>
-                    <h3 class="h3-center">Registrate aquí</h3>
+                    <h3 class="center">Registrate aquí</h3>
                     <p>Los campos que contienen (*) son obligatorios</p>
                     <div>
                         <label for="name">Nombre(s) *</label>
@@ -84,7 +100,7 @@
                     <div>
                         <button class="button-100" type="submit">Enviar</button>
                     </div>
-                    <div class="enlaces">
+                    <div class="center">
                         <a href="inicio_sesion.html">¿Ya eres socio? Inicia sesión</a>
                     </div>
                 </form>
@@ -109,7 +125,25 @@
                 toggleButton.textContent = 'v'; // Cambia el texto a "v" que representa el icono de "ver"
             }
         }
-    </script>
+
+    const slider = document.querySelector('.slider figure');
+    const images = document.querySelectorAll('.slider figure img');
+    const imageWidth = 100; // Porcentaje de ancho de cada imagen (25% * 4)
+    let currentImage = 0;
+
+    function moveSlider() {
+        currentImage++;
+
+        if (currentImage > images.length - 1) { //Verifica si es la última imagen del slider
+            currentImage = 0; // Vuelve a la primera imagen
+        }
+
+        const translateXValue = -currentImage * (imageWidth / images.length);
+        slider.style.transform = `translateX(${translateXValue}%)`;
+    }
+
+    setInterval(moveSlider, 3000); // Cambia la imagen cada 3 segundos
+</script>
 </body>
 
 </html>

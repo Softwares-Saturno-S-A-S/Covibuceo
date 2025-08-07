@@ -6,15 +6,25 @@
     --color-5: #ECECEC;
     --color-6: #fff;
     --color-7: #29a1dd;
+    --color-8: #999;
+    --color-9: #DB411E;
 
     --border-rad: 15px;
     --padding: 15px;
-    --big-padding: 30px;
+    --gap: 15px;
+    --sangria: 15px;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 @font-face {
     font-family: 'icons';
     src: url(../fonts/iconos.ttf);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -41,22 +51,51 @@ header {
     z-index: 3;
 }
 
-main {
-   padding: var(--big-padding);
-}
-
-.display-flex {
-    gap: 40px;
+#introduccion {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background: var(--color-6);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    border-radius: var(--border-rad);
-    padding: var(--padding);
+    flex-direction: column;
+    position: relative;
 }
 
-.spaced{
+.slider {
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider figure {
+    position: relative;
+    width: 500%;
+    margin: 0;
+    left: 0;
+    text-align: left;
+    font-size: 0;
+    transition: all 1s ease-in-out ;
+    display: inline-block;
+}
+
+.slider figure img {
+    width: 20%;
+    float: left;
+    object-fit: cover;
+}
+
+.texto-slider{
+    position: absolute;
+    height: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-5);
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--gap);
+    text-indent: var(--sangria);
+    padding: var(--padding);
+    background: linear-gradient(to right, var(--color-4), 85%, transparent);
+}
+
+.spaced {
     line-height: 1.6;
 }
 
@@ -69,11 +108,11 @@ main {
     justify-content: center;
     padding: var(--padding);
     border-radius: var(--border-rad);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    text-indent: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    text-indent: var(--sangria);
 }
 
-.link{
+.link {
     color: var(--color-7);
     text-decoration: underline;
 }
@@ -96,7 +135,7 @@ header a {
 a {
     margin-top: 10px;
     text-decoration: none;
-    color: #999;
+    color: var(--color-8);
 }
 
 header img {
@@ -106,15 +145,18 @@ header img {
 p {
     font-size: 1.1em;
     text-align: justify;
-    margin-bottom: 0;
 }
 
-.p-center {
+.center {
     text-align: center;
 }
 
-.p-left{
+.left {
     text-align: left;
+}
+
+.right{
+    text-align: right;
 }
 
 .p1,
@@ -130,24 +172,19 @@ button {
 }
 
 h1 {
-    text-align: center;
     font-size: 2.5em;
-    margin-bottom: 0;
+}
+
+.big{
+    font-size: 3.1em;
 }
 
 h2 {
-    text-align: center;
     font-size: 1.7em;
-    margin-bottom: 0;
 }
 
 h3 {
     font-size: 1.5em;
-    margin-bottom: 0;
-}
-
-.h3-center {
-    text-align: center;
 }
 
 form:not(.no-styles) {
@@ -157,8 +194,18 @@ form:not(.no-styles) {
     background-color: var(--color-6);
     padding: 40px;
     border-radius: var(--border-rad);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 50px 0;
 }
 
 form div {
@@ -191,13 +238,13 @@ input[name="password"] {
 
 
 button {
-    color: var(--color-6);
     border: none;
     cursor: pointer;
+    color: var(--color-6);
 }
 
 .button-100 {
-    background-color: #333;
+    background-color: var(--color-4);
     border-radius: 5px;
     width: 100%;
     padding: 15px;
@@ -211,8 +258,16 @@ button {
     background-color: var(--color-3);
 }
 
-.light-green{
+.light-green {
     background-color: var(--color-1);
+}
+
+.orange{
+    background-color: var(--color-9);
+}
+
+.button-wrap{
+    align-self: flex-start; /*Esto permite que el botón se alinee a la izquierda al estar usando flex en el contenedor padre*/
 }
 
 .button-size {
@@ -266,12 +321,4 @@ button {
 
 .sub1 {
     width: 70%;
-}
-
-.enlaces {
-    text-align: center;
-}
-
-.enlaces-right {
-    text-align: right;
 }

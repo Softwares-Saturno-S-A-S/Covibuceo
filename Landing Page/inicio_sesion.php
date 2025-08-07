@@ -38,7 +38,7 @@
         }
         ?>
     <form action="../php/login.php" method="POST">
-        <h3 class="h3-center">Ingreso a mi cuenta</h3>
+        <h3 class="center">Ingreso a mi cuenta</h3>
         <div>
             <label for="email">Email</label>
             <input name="email" type="text" required>
@@ -64,8 +64,8 @@
         <div>
             <button class="button-100" type="submit">Iniciar sesión</button>
         </div>
-        <div class="enlaces-right">
-            <a href="">¿Olvidaste tu contraseña?</a>
+        <div class="right">
+            <a href="../php/recuperar_clave.php">¿Olvidaste tu contraseña?</a>
         </div>
     </form>
     </main>
