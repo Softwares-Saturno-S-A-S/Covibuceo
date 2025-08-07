@@ -29,8 +29,8 @@
             <div class="texto-slider">
             <h1 class="big">¡Bienvenido a COVIBUCEO!</h1>
             <h2>Cooperativa de vivienda y ayuda mutua del Buceo</h2>
-            <p>Esta es la página oficial de COVIBUCEO. Aquí podrás ver información sobre nuestra cooperativa, nuestras viviendas y normas. Tienes también nuestro contacto por cualquier consulta.</p>
-            <p>Puedes pedir para asociarte directamente desde esta página:</p>
+            <p class="left">Esta es la página oficial de COVIBUCEO. Aquí podrás ver información sobre nuestra cooperativa, nuestras viviendas y normas. Tienes también nuestro contacto por cualquier consulta.</p>
+            <p class="left">Puedes pedir para asociarte directamente desde esta página:</p>
             <form action="registro-form.php" class="no-styles">
             <button class="button-size button-wrap orange">Régistrate ahora</button>
             </form>
