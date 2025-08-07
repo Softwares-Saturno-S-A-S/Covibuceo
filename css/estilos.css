@@ -12,6 +12,7 @@
     --border-rad: 15px;
     --padding: 15px;
     --gap: 15px;
+    --big-gap: 30px;
     --sangria: 15px;
     --shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
@@ -49,6 +50,13 @@ header {
     position: sticky;
     top: 0;
     z-index: 3;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    gap: var(--big-gap);
+    padding-bottom: var(--big-gap);
 }
 
 #introduccion {
@@ -198,18 +206,16 @@ form:not(.no-styles) {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: var(--big-gap);
 }
 
 section {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    margin: 50px 0;
 }
 
 form div {
-    margin-bottom: 15px;
     position: relative;
 }
 
@@ -235,7 +241,6 @@ input[name="password"] {
     display: flex;
     align-items: center;
 }
-
 
 button {
     border: none;

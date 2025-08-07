@@ -31,12 +31,6 @@
         </ul>
     </header>
     <main>
-
-        <?php
-        if (isset($_GET['registro']) && $_GET['registro'] == 'exito') {
-            echo '<p style="color: green;"> Registro exitoso. Ahora podés iniciar sesión.</p>';
-        }
-        ?>
     <form action="../php/login.php" method="POST">
         <h3 class="center">Ingreso a mi cuenta</h3>
         <div>
@@ -45,9 +39,11 @@
         </div>
         <div>
             <label for="password">Contraseña</label>
-            <input type="password" name="password" required>
+            <div id="password">
+                <input type="password" name="password" required>
+                <button class="toggle-password" type="button" onclick="cambioContraseña()">v</button> <!-- Se agrega "type=button" para que no se envíe el formulario al hacer click en el botón -->
+            </div>
         </div>
-        <div>
             <?php
                 if (isset($_GET['error'])) {
                     if ($_GET['error'] == 'invalido') {
