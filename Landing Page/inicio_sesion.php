@@ -70,6 +70,8 @@
         <p>Teléfono: 099 923 655</p>
         <p>Dirección: Gral. Rivera 4000</p>
     </footer>
+
+    <script src="../js/contrsena.js"></script>
 </body>
 
 </html>
