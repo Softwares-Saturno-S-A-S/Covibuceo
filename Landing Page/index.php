@@ -17,6 +17,7 @@
     </header>
     <main>
         <section id="introduccion">
+            <div class="slider-fondo">
             <div class="slider">
                 <figure>
                     <img src="../img/covibuceo_slider/covibuceo 1.png" alt="Imagen de la cooperativa">
@@ -34,7 +35,28 @@
             <form action="registro-form.php" class="no-styles">
             <button class="button-size button-wrap orange">Régistrate ahora</button>
             </form>
-</div>
+            </div>
+            </div>
+<section id="opciones">
+    <div class="tarjeta">
+    <div class="classic">
+        <img src="../svg/Personas.svg">
+    </div>
+    <h1>Breve Historia</h1>
+    </div>
+    <div class="tarjeta">
+    <div class="classic">
+        <img src="../svg/Ubicacion.svg">
+    </div>
+    <h1>Ubicación</h1>
+    </div>
+    <div class="tarjeta">
+    <div class="classic">
+        <img src="../svg/Vivienda.svg">
+    </div>
+    <h1>Viviendas Disponibles</h1>
+    </div>
+</section>
             <!-- <div class="display-flex">
                 <img src="../img/vivienda.png" alt="Imagen de la coopertiva">
                 <p class="p1 spaced">Somos una cooperativa de vivienda y ayuda mutua creada en 2017, instalada en el barrio del Buceo,
