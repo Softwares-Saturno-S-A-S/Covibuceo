@@ -10,7 +10,7 @@ class Database
     private function __construct()
     {
         $this->connection = null;
-        $this->connection = new PDO("mysql:host=" .$this->host . ";dbname=", $this->username, $this->password);
+        $this->connection = new PDO("mysql:host=" .$this->host . ";dbname=", $this->username, $this->password); //Crea un objeto PDO (PHP Data Object) para la conexión a la base de datos. El objeto conteine tres parámetros: el DNS (Data Source Name) que especifica el la ubicación y nombre de la base de datos, el nombre de usuario y la contraseña. 
         $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
