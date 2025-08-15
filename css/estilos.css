@@ -11,11 +11,13 @@
     --color-10: #FFE97B;
 
     --border-rad: 15px;
-    --padding: 15px;
+    --padding: 20px;
+    --great-padding: 100px;
     --gap: 15px;
-    --big-gap: 30px;
+    --big-gap: 50px;
     --sangria: 15px;
-    --shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    --shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    --shadow2: 0 8px 8px rgba(0, 0, 0, 0.5);
 }
 
 @font-face {
@@ -53,17 +55,32 @@ header {
     z-index: 3;
 }
 
+header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header ul li {
+    margin-left: 35px;
+}
+
+header a {
+    color: var(--color-6);
+    display: inline-block;
+}
+
 main{
     display: flex;
     flex-direction: column;
-    gap: var(--big-gap);
-    padding-bottom: var(--big-gap);
+    padding: var(--great-padding);
 }
 
 section {
     display: flex;
     justify-content: space-between;
-    gap: 15px;
+    gap: var(--gap);
 }
 
 #introduccion {
@@ -84,8 +101,8 @@ section {
     left: 0;
     text-align: left;
     font-size: 0;
-    transition: all 1s ease-in-out ;
-    display: inline-block;
+    transition: all 1.2s ease-in-out ;
+    display: block;
 }
 
 .slider figure img {
@@ -119,31 +136,37 @@ section {
     line-height: 1.6;
 }
 
+#opciones {
+    display: flex;
+    gap: var(--gap);
+}
+
 .tarjeta{
     display: flex;
     flex-direction: column;
+    gap: var(--gap);
     align-items: center;
     text-align: center;
     cursor: pointer;
+    padding: var(--padding);
 }
 
 .classic {
     background-color: var(--color-6);
     display: flex;
     flex-direction: column;
-    gap: 15px;
     align-items: center;
     justify-content: center;
-    padding: 50px;
+    padding: var(--great-padding);
     border-radius: var(--border-rad);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--shadow2);
     text-indent: var(--sangria);
     width: 50px;
     height: 50px;
 }
 
 .classic img{
-    width: 6vw;
+    width: 7vw;
 }
 
 .link {
@@ -151,25 +174,14 @@ section {
     text-decoration: underline;
 }
 
-header ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-header ul li {
-    margin-left: 35px;
-}
-
-header a {
-    color: var(--color-6);
+.link-form {
+    margin-top: 10px;
+    color: var(--color-8);
 }
 
 a {
-    margin-top: 10px;
     text-decoration: none;
-    color: var(--color-8);
+    
 }
 
 header img {
@@ -303,6 +315,13 @@ button {
 .button-longsize {
     border-radius: 40px;
     padding: 5px 80px;
+}
+
+.button-100, .button-size, .button-longsize, header a, .tarjeta{
+    transition: all 0.3s;
+}
+.button-100:hover, .button-size:hover, .button-longsize:hover, .tarjeta:hover {
+    transform: scale(1.1);
 }
 
 .botones {
