@@ -1,8 +1,5 @@
 <?php
 
-//Esta API sirve para guardar los datos que son ingresados por el usuario en el formulario de registro, en una tabla de la base de datos llamada "SOLICITUD"
-//Una vez que el admin apruebe una solicitud, los datos correspondientes a esa tupla, serán enviados a las tablas que guardan los datos de los socio, siendo estas "SOCIO", "PERSONA" y "TELEFONO"
-
 // Conexión a la base de datos
 
 $conexion = new mysqli('localhost', 'root', '', 'cooperativa');
