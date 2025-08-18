@@ -7,7 +7,7 @@
       "installComposer": true
      }
    },
-  "forwardPorts": [8080, 3000, 3306, 80],
+  "forwardPorts": [80, 3306],
   "postCreateCommand": "sudo apt-get update && sudo apt-get install -y default-mysql-server default-mysql-client apache2 libapache2-mod-php && sudo a2enmod php8.0 && sudo systemctl enable apache2 && sudo service mysql start && sudo service apache2 start && sudo cp -r ./* /var/www/html/ && sudo chown -R www-data:www-data /var/www/html/ sudo chmod -R 755 /var/www/html",
 
   "customizations": {
