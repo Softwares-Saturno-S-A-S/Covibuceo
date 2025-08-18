@@ -1,20 +1,22 @@
 {
-  "name": "Covibuceo Container", // Nombre del contenedor
-  "image": "mcr.microsoft.com/devcontainers/php:1-8.0-bullseye", // Imagen base de PHP 8.0
+  "name": "Covibuceo Container",
+  "image": "mcr.microsoft.com/devcontainers/php:1-8.0-bullseye",
   "features": {
-    "ghcr.io/devcontainers/features/php:1": { // Configuración de PHP
+    "ghcr.io/devcontainers/features/php:1": {
       "version": "8.0",
-      "installComposer": true // Instalar Composer
-    }
-  },
-  "forwardPorts": [8080, 3000, 3306], // Puertos a exponer, 8080 para el servidor web, 3000 para Node.js y 3306 para MySQL
-  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y default-mysql-server default-mysql-client && sudo service mysql start", // Comando para instalar MySQL y arrancar el servicio
+      "installComposer": true
+     }
+   },
+  "forwardPorts": [8080, 3000, 3306, 80],
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y default-mysql-server default-mysql-client apache2 libapache2-mod-php && sudo a2enmod php8.0 && sudo systemctl enable apache2 && sudo service mysql start && sudo service apache2 start && sudo cp -r ./* /var/www/html/ && sudo chown -R www-data:www-data /var/www/html/ sudo chmod -R 755 /var/www/html",
+
   "customizations": {
-    "vscode": {
+  "vscode": {
       "extensions": [
-        "bmewburn.vscode-intelephense-client",
-        "ms-vscode.vscode-json"
-      ]
-    }
-  }
+      "bmewburn.vscode-intelephense-client",
+      "ms-vscode.vscode-json"
+    ] 
+ }
+ },
+ "remoteUser": "vscode"
 }
