@@ -1,15 +1,15 @@
 {
-  "name": "Covibuceo Container", // Nombre del contenedor
-  "image": "php:8.0-apache", // Imagen base de PHP con Apache
+  "name": "Covibuceo Container",
+  "image": "php:8.0-apache",
+  "forwardPorts": [80, 3306],
   "features": {
-  "forwardPorts": [80, 3306],  // Puerto servidor web y base de datos respectivamente
-  "features": {
-    "ghcr.io/devcontainers/features/php:1": {},
-    "ghcr.io/devcontainers/features/mysql:1": { 
-      "version": "8" // Indica que versión de MySQL se usará
+    "ghcr.io/devcontainers/features/php:1": {
+      "extensions":"mysqli,pdo,pdo_mysql"
     },
-    "extensions":"mysqli,pdo,pdo_mysql" // Instala las extensiones necesarias de PHP para gestionar MySQL
+    "ghcr.io/devcontainers/features/mysql:1": { 
+      "version": "8" 
+    },
+    
   },
-  "postCreateCommand": "docker-php-ext-install mysqli pdo pdo_mysql && a2enmod rewrite && service apache2 restart && mysql -u root < backend/config/database/cooperativa.sql"
-}
+  "postCreateCommand": "docker-php-ext-install mysqli pdo pdo_mysql && a2enmod rewrite && service apache2 restart && sleep 10 && mysql -u root < backend/config/database/cooperativa.sql"
 }
