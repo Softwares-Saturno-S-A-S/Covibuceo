@@ -253,6 +253,9 @@ form div {
 
 label {
     display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     margin-bottom: 5px;
 }
 
@@ -262,6 +265,7 @@ input {
     padding: 20px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    transition: all .3s ease;
 }
 
 input[name="password"] {
