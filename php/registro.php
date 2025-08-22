@@ -2,10 +2,9 @@
 
 // Conexión a la base de datos
 
-$conexion = new mysqli('localhost', 'root', '', 'cooperativa');
-    if ($conexion->connect_error) {
-        die("Error de conexión: " . $conexion->connect_error);
-    }
+require_once '../backend/config/Database.php';
+
+$conexion = Database::getConnection();
 
 // Obtener datos del formulario
 $nombre = $_POST['name'];
@@ -17,7 +16,7 @@ $clave = $_POST['password'];
 $clave_hash = password_hash($clave, PASSWORD_DEFAULT); // Hashear la contraseña
 
 // Verificar si ya existe ese email o cédula
-$sql_verificar = "SELECT * FROM PERSONA WHERE Email = ? OR CI = ?";
+$sql_verificar = "SELECT * FROM SOCIO WHERE Email = ? OR CI = ?";
 $stmt = $conexion->prepare($sql_verificar);
 $stmt->bind_param("ss", $email, $ci);
 $stmt->execute();
