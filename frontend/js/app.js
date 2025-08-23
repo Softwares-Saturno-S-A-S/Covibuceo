@@ -4,10 +4,10 @@ const API_Usuarios = "http://localhost/primerentrega/backend/api/socios.php"; //
 document.getElementById("form-registro").addEventListener("submit", async e => {
     e.preventDefault();
     const socio = {
-    // Cargar datsi del formulario
+    // Cargar datos del formulario
         nombre: document.getElementByName("name").value,
         apellido: document.getElementByName("surname").value,
-        email: document.getElementByName("ci").value,
+        ci: document.getElementByName("ci").value,
         telefono: document.getElementByName("tel").value,
         email: document.getElementByName("email").value,
         password: document.getElementByName("password").value,
