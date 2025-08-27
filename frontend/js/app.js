@@ -22,13 +22,19 @@ document.getElementById("form-registro").addEventListener("submit", async e => {
 
     $status = response.status; // Obtiene el código de estado de la respuesta
     switch ($status) {
+
         case 201: // Exito, solicitud agregada correctamente
            setTimeout(() => { // Abre en una nueva pestaña el mensaje de solicitud enviada
                 window.location.href = "../Landing Page/aceptado.html"; 
             }, 1000);
         break;
+
         case 409: // Error (usuario existente)
-            document.getElementById("error-message").textContent = resultado.error; // Muestra el mensaje de error devuelto por la API
-            document.getElementById("error-message").style.display = "block";
-}
+            document.getElementById("response").textContent = resultado.error; // Muestra el mensaje de error devuelto por la API
+            // Agregar estilos de error
+            document.getElementById("response").style.display = "block"; 
+            document.getElementById("response").style.color = "red";
+        break;
+        
+    }
 });

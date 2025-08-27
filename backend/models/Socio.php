@@ -25,20 +25,44 @@
         } else { // En caso de no existir crea el usuario 
             $stmt = $this->conn->prepare("INSERT INTO " . $this->table_name .  " (Nombre, Apellido, CI, Email, Password_hash) VALUES (?, ?, ?, ?, ?)");
             $insert = $stmt->execute([
-            $data['nombre'], 
-            $data['apellido'], 
-            $data['ci'], 
-            $data['email'], 
-            password_hash($data['password'], PASSWORD_DEFAULT)
+            $input['nombre'], 
+            $input['apellido'], 
+            $input['ci'], 
+            $input['email'], 
+            password_hash($input['password'], PASSWORD_DEFAULT)
         ]);
+
+        // Insertar los teléfonos aparte
+        $socio_id = $this->conn->lastInsertId(); // Obtiene el ID del socio recién insertado
+
+        $this->insertarTelefonos($socio_id, $input['telefono']);
+
+        private function insertarTelefonos($socio_id, $telefono_string) {
+        $telefonos = array_map('trim', explode(',', $telefono_string)); // Convierte la cadena en un array separando cada indice por comas y eliminando espacios en blanco
+    
+    $sql = "INSERT INTO TELEFONO (ID_Socio, Nro_Telefono) VALUES (?, ?)";
+    $stmt = $this->conn->prepare($sql);
+    
+    foreach ($telefonos as $telefono) { // Recorre el array e inserta cada teléfono
+        if (!empty($telefono)) {
+            $stmt->execute([
+                ':socio_id',
+                ':telefono'
+            ]);
+        }
 
             if ($insert) { // Si la inserción fue exitosa
                 return [
                     'status' => 201,
-                    'mensaje' => 'Usuario creado exitosamente'
+                    'mensaje' => '<h2>Solicitud Enviada</h2>
+                    <p class="p-left spaced">Le informamos que su solicitud para asociarse a <b>COVIBUCEO</b> fue enviada con éxito. Usted recibirá un correo electrónico a: ' . '<div class="link">' . $insert.['email'] . '</div>' . ' cuando gestionemos el estado de su solicitud.</p>
+                    <p class="p-left spaced">En caso de aprobar su solicitud le enviaremos los datos para realizar su aporte inicial, y la cuota mensual de su vivienda más los gastos comunes.</p>
+                    <button class="button-longsize light-green">Aceptar</button>'
                 ];
             }
         }
         }
+    }
+}
     }
 ?>
