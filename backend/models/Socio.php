@@ -40,14 +40,14 @@
         private function insertarTelefonos($socio_id, $telefono_string) {
         $telefonos = array_map('trim', explode(',', $telefono_string)); // Convierte la cadena en un array separando cada indice por comas y eliminando espacios en blanco
     
-    $sql = "INSERT INTO TELEFONO (ID_Socio, Nro_Telefono) VALUES (?, ?)";
-    $stmt = $this->conn->prepare($sql);
+        $sql = "INSERT INTO TELEFONO (ID_Socio, Nro_Telefono) VALUES (?, ?)";
+        $stmt = $this->conn->prepare($sql);
     
     foreach ($telefonos as $telefono) { // Recorre el array e inserta cada teléfono
         if (!empty($telefono)) {
             $stmt->execute([
-                ':socio_id',
-                ':telefono'
+                $socio_id,
+                $telefono
             ]);
         }
 
