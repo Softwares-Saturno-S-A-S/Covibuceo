@@ -1,0 +1,14 @@
+{
+  "name": "Covibuceo Container",
+  "image": "php:8.0-apache",
+  "forwardPorts": [80, 3306],
+  "features": {
+    "ghcr.io/devcontainers/features/php:1": {
+      "extensions":"mysqli,pdo,pdo_mysql"
+    },
+    "ghcr.io/devcontainers/features/mysql:1": { 
+      "version": "8" 
+    }
+  },
+  "postCreateCommand": "docker-php-ext-install mysqli pdo pdo_mysql && a2enmod rewrite && service apache2 restart && sleep 10 && mysql -u root < backend/config/database/cooperativa.sql"
+}

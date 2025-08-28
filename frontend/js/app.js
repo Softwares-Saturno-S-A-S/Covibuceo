@@ -22,6 +22,7 @@ document.getElementById("form-registro").addEventListener("submit", async e => {
 
     $status = response.status; // Obtiene el código de estado de la respuesta
     switch ($status) {
+<<<<<<< HEAD
 
         case 201: // Exito, solicitud agregada correctamente
             const mensaje = encodeURIComponent(resultado.mensaje); // Codifica el mensaje para URL
@@ -36,4 +37,15 @@ document.getElementById("form-registro").addEventListener("submit", async e => {
         break;
         
     }
+=======
+        case 201: // Exito, solicitud agregada correctamente
+           setTimeout(() => { // Abre en una nueva pestaña el mensaje de solicitud enviada
+                window.location.href = "../Landing Page/aceptado.html"; 
+            }, 1000);
+        break;
+        case 409: // Error (usuario existente)
+            document.getElementById("error-message").textContent = resultado.error; // Muestra el mensaje de error devuelto por la API
+            document.getElementById("error-message").style.display = "block";
+}
+>>>>>>> 26e67ee8c406f0e825dbff20562a44f9544a7778
 });
