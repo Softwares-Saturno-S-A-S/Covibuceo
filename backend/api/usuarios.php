@@ -11,7 +11,7 @@
         $input = json_decode(file_get_contents('php://input'), true); // Decodifica el JSON recibido en un array asociativo
 
         $socio = new Socio(); // Crea un objeto Socio
-        $resultado = $socio->crear($input); // Llama al método crear del objeto Socio, pasando como pararmetro la decodificación json
+        $resultado = $socio->add($input); // Llama al método crear del objeto Socio, pasando como pararmetro la decodificación json
 
         http_response_code($resultado['status']); // Establece el código de respuesta HTTP, llamando al status corespondiente
 

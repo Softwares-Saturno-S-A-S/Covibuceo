@@ -1,13 +1,21 @@
 <?php
-    require_once 'Database.php'; // Llama el archivo con la conexión a la base de datos
+    require_once '../config/Database.php'; // Llama el archivo con la conexión a la base de datos
 
     class Socio {
+    // Variables 
+
         private $conn;
         private $table_name = "SOCIO";
 
-        public function __construct() { // Constructor que inicializa la conexión a la base de datos
-        $this->conn = Database::getConnection();
+    // Constructor 
+    
+        public function __construct() { 
+            $database = new Database();
+            $this->conn = $database->getConnection();
     }
+
+    // Métodos
+
         public function add($input){
             $stmt = $this->conn->prepare("SELECT * FROM " . $this->table_name . " WHERE CI = ? OR Email = ? AND Estado_Socio = 'Aprobado'"); // Consulta para verificar si ese usuario ya existe
             $stmt->execute([ // Ejecuta la consulta con los parámetros proporcionados
@@ -44,10 +52,11 @@
             if ($insert) { // Si la inserción fue exitosa devuelve el status 201 y un mensaje de éxito
                 return [
                     'status' => 201,
-                    'mensaje' => '<h2>Solicitud Enviada</h2>
-                    <p class="p-left spaced">Le informamos que su solicitud para asociarse a <b>COVIBUCEO</b> fue enviada con éxito. Usted recibirá un correo electrónico a: ' . '<div class="link">' . $input['email'] . '</div>' . ' cuando gestionemos el estado de su solicitud.</p>
-                    <p class="p-left spaced">En caso de aprobar su solicitud le enviaremos los datos para realizar su aporte inicial, y la cuota mensual de su vivienda más los gastos comunes.</p>
-                    <button class="button-longsize light-green">Aceptar</button>'
+                    'mensaje' => 'Solicitud Enviada'
+                    // 'titulo' => 'Solicitud Enviada',
+                    // 'mensaje' => 'Le informamos que su solicitud para asociarse a <b>COVIBUCEO</b> fue enviada con éxito. Usted recibirá un correo electrónico a: ' . '<div class="link">' . $input['email'] . '</div>' . ' cuando gestionemos el estado de su solicitud.</p>
+                    // <p class="p-left spaced">En caso de aprobar su solicitud le enviaremos los datos para realizar su aporte inicial, y la cuota mensual de su vivienda más los gastos comunes.</p>
+                    // <button class="button-longsize light-green">Aceptar</button>'
                 ];
             } else { // Si la inserccion no fue exitosa, por error de conexión, devuelve el status 500 y un mensaje de error
                 return [

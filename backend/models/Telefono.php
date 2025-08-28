@@ -1,12 +1,13 @@
 <?php
-    require_once 'Database.php'; // Llama el archivo con la conexión a la base de datos
+    require_once '../config/Database.php'; // Llama el archivo con la conexión a la base de datos
 
     class Telefono {
         private $conn;
         private $table_name = "TELEFONO";
 
         public function __construct() { // Constructor que inicializa la conexión a la base de datos
-        $this->conn = Database::getConnection();
+            $database = new Database();
+            $this->conn = $database->getConnection();
     }
 
     public function add($socio_id, $telefono_string) {

@@ -25,9 +25,9 @@
 
 <body>
     <header>
-        <a href="index.php"><img src="../img/Logo Cooperativa (3).svg" alt="Logo COVIBUCEO"></a>
+        <a href="index.php"><img src="../../img/Logo Cooperativa (3).svg" alt="Logo COVIBUCEO"></a>
         <ul>
-            <li><a href="index.php">Registrarse</a></li>
+            <li><a href="registro.html">Registrarse</a></li>
         </ul>
     </header>
     <main>
@@ -68,7 +68,7 @@
     <footer>
         <p>E-mail: covibuceo@gmail.com.uy</p>
         <p>Teléfono: 099 923 655</p>
-        <p>Dirección: Gral. Rivera 4000</p>
+        <p>Dirección: Rbla. Armenia 3975</p>
     </footer>
 
     <script src="../js/contrsena.js"></script>
