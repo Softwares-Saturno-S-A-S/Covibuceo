@@ -257,13 +257,13 @@ form div {
     position: relative;
 }
 
-label {
+/* label {
     display: block;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     margin-bottom: 5px;
-}
+} */
 
 input {
     width: 100%;
