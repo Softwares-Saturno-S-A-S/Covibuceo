@@ -9,11 +9,7 @@
         $this->conn = Database::getConnection();
     }
         public function add($input){
-<<<<<<< HEAD
             $stmt = $this->conn->prepare("SELECT * FROM " . $this->table_name . " WHERE CI = ? OR Email = ? AND Estado_Socio = 'Aprobado'"); // Consulta para verificar si ese usuario ya existe
-=======
-            $stmt = $this->conn->prepare("SELECT * FROM " . $this->table_name . " WHERE CI = ? OR Email = ?"); // Consulta para verificar si ese usuario ya existe
->>>>>>> 26e67ee8c406f0e825dbff20562a44f9544a7778
             $stmt->execute([ // Ejecuta la consulta con los parámetros proporcionados
             $input['ci'], 
             $input['email']
@@ -29,7 +25,6 @@
         } else { // En caso de no existir crea el usuario 
             $stmt = $this->conn->prepare("INSERT INTO " . $this->table_name .  " (Nombre, Apellido, CI, Email, Password_hash) VALUES (?, ?, ?, ?, ?)");
             $insert = $stmt->execute([
-<<<<<<< HEAD
             $input['nombre'], 
             $input['apellido'], 
             $input['ci'], 
@@ -44,7 +39,7 @@
         require_once 'Telefono.php'; // Incluye el modelo Telefono
 
         $telefono = new Telefono();
-        $resultado = $telefono->add($socio_id, $input['telefono']);
+        $resultado = $telefono->add($socio_id, $telefonos);
 
             if ($insert) { // Si la inserción fue exitosa devuelve el status 201 y un mensaje de éxito
                 return [
@@ -61,22 +56,6 @@
                 ];
             }
         }
-=======
-            $data['nombre'], 
-            $data['apellido'], 
-            $data['ci'], 
-            $data['email'], 
-            password_hash($data['password'], PASSWORD_DEFAULT)
-        ]);
-
-            if ($insert) { // Si la inserción fue exitosa
-                return [
-                    'status' => 201,
-                    'mensaje' => 'Usuario creado exitosamente'
-                ];
-            }
-        }
-        }
->>>>>>> 26e67ee8c406f0e825dbff20562a44f9544a7778
-    }
+    } 
+}
 ?>

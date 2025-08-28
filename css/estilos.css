@@ -247,6 +247,12 @@ form:not(.no-styles) {
     gap: var(--big-gap);
 }
 
+#response {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+}
+
 form div {
     position: relative;
 }
