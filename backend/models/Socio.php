@@ -17,7 +17,7 @@
     // Métodos
 
         public function add($input){
-            $stmt = $this->conn->prepare("SELECT * FROM " . $this->table_name . " WHERE CI = ? OR Email = ? AND Estado_Socio = 'Aprobado'"); // Consulta para verificar si ese usuario ya existe
+            $stmt = $this->conn->prepare("SELECT * FROM " . $this->table_name . " WHERE (CI = ? OR Email = ?) AND Estado_Socio = 'Aprobado'"); // Consulta para verificar si ese usuario ya existe
             $stmt->execute([ // Ejecuta la consulta con los parámetros proporcionados
             $input['ci'], 
             $input['email']
