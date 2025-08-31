@@ -24,6 +24,14 @@
         </ul>
     </header>
     <main>
+        <section>
+            <h2>Bienvenido al Panel de Administración</h2>
+            <h3>Solicitudes Pendientes</h3>
+                <div id = "solicitudes-pendientes">
+                    
+                </div>
+        </section>
+            
         <?php
 
         // Conectar a la base de datos

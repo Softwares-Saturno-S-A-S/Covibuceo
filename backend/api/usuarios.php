@@ -22,5 +22,9 @@
         echo json_encode(['mensaje' => $resultado['mensaje']]);
     }
         break;
+    
+    case 'GET': // Metodo GET para obtener todos los socios 
+        
+        break;
     }
 ?>

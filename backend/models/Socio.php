@@ -52,11 +52,8 @@
             if ($insert) { // Si la inserción fue exitosa devuelve el status 201 y un mensaje de éxito
                 return [
                     'status' => 201,
-                    'mensaje' => 'Solicitud Enviada'
-                    // 'titulo' => 'Solicitud Enviada',
-                    // 'mensaje' => 'Le informamos que su solicitud para asociarse a <b>COVIBUCEO</b> fue enviada con éxito. Usted recibirá un correo electrónico a: ' . '<div class="link">' . $input['email'] . '</div>' . ' cuando gestionemos el estado de su solicitud.</p>
-                    // <p class="p-left spaced">En caso de aprobar su solicitud le enviaremos los datos para realizar su aporte inicial, y la cuota mensual de su vivienda más los gastos comunes.</p>
-                    // <button class="button-longsize light-green">Aceptar</button>'
+                    'mensaje' => 'Solicitud enviada',
+                    'email' => $input['email']
                 ];
             } else { // Si la inserccion no fue exitosa, por error de conexión, devuelve el status 500 y un mensaje de error
                 return [

@@ -24,9 +24,16 @@ document.getElementById("form-registro").addEventListener("submit", async e => {
     switch ($status) {
 
         case 201: // Exito, solicitud agregada correctamente
-            document.getElementById("response").textContent = resultado.mensaje; // Muestra el mensaje de éxito devuelto por la API
-            // const mensaje = encodeURIComponent(resultado.mensaje); // Codifica el mensaje para URL
-            // window.location.href = "../Landing Page/aceptado.html?mensaje=" + mensaje; //Redirige a una nueva pestaña pasando como parámetro el mensaje recibido de la API.
+            function buildHTML(resultado){ // Función para construir el HTML del mensaje
+                const mensaje = `
+                    <h2>Solicitud Enviada</h2>
+                    <p class="p-left spaced">Le informamos que su solicitud para asociarse a <b>COVIBUCEO</b> fue enviada con éxito. Usted recibirá un correo electrónico a: <div class="link">${resultado.email}</div> cuando gestionemos el estado de su solicitud.</p>
+                    <p class="p-left spaced">En caso de aprobar su solicitud le enviaremos los datos para realizar su aporte inicial. Una vez realice este aporte, se le asignara una vivienda en base a las necesidades solicitadas.</p>
+                    <button class="button-longsize light-green" onclick = "close()">Aceptar</button>
+                `;
+            }
+            const mensaje = encodeURIComponent(resultado.mensaje); // Codifica el mensaje para URL
+            window.location.href = "../Landing Page/aceptado.html?mensaje=" + mensaje; //Redirige a una nueva pestaña pasando como parámetro el mensaje recibido de la API.
         break;
 
         case 409: // Error (usuario existente)
