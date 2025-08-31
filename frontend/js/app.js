@@ -12,6 +12,7 @@ document.getElementById("form-registro").addEventListener("submit", async e => {
         email: document.getElementsByName("email")[0].value,
         password: document.getElementsByName("password")[0].value,
     };
+
     const response = await fetch(API_Usuarios, {
         method: "POST", // Hace una solicitud POST
         headers: { "Content-Type": "application/json" }, // Define el tipo de contenido como JSON
@@ -50,3 +51,17 @@ document.getElementById("form-registro").addEventListener("submit", async e => {
 
  }
 );
+
+// Mostrar Solicitudes de Socios (Para administrador)
+document.getElementById("solicitudes-pendientes").addEventListener("DOMContentLoaded", async e => {
+    e.preventDefault();
+    const socios = {
+        Estado: "Pendiente"
+    };
+
+    const response = await fetch(API_Usuarios, {
+        method: "GET", // Hace una solicitud POST
+        headers: { "Content-Type": "application/json" }, // Define el tipo de contenido como JSON
+        body: JSON.stringify(socios) // Convierte el objeto socio a una cadena JSON
+    })
+});
