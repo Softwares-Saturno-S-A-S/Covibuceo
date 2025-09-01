@@ -35,7 +35,7 @@
             password_hash($input['password'], PASSWORD_DEFAULT)
         ]);
 
-        // Insertar los teléfonos aparte
+        // Insertar los teléfonos
         $socio_id = $this->conn->lastInsertId(); // Obtiene el ID del socio recién insertado
         $telefonos = $input['telefono'];
 
@@ -43,9 +43,12 @@
 
         $telefono = new Telefono();
         $resultado = $telefono->add($socio_id, $telefonos);
-
-        return $insert; // Devuelve el resultado de la inserción
         
+        if (!$insert) { 
+            return $stmt->errorInfo()[2];
+        } else {
+            return true; // Si la insercción fue exitosa, devuelve true
         }
     } 
+}
 ?>

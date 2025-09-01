@@ -71,7 +71,7 @@
         <p>Dirección: Rbla. Armenia 3975</p>
     </footer>
 
-    <script src="../js/contrsena.js"></script>
+    <script src="../js/contrasena.js"></script>
 </body>
 
 </html>

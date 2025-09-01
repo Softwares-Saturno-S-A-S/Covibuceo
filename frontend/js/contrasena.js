@@ -1,4 +1,4 @@
-function cambioContraseña() {
+function cambioContrasena() {
             const passwordInput = document.querySelector('input[name="password"]');
             const toggleButton = document.querySelector('.toggle-password');
 

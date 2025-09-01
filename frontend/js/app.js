@@ -1,3 +1,16 @@
+console.log("app.js cargado correctamente");
+
+function buildHTML(resultado){ // Función para construir el HTML del mensaje
+        const mensaje = `
+            <h2>Solicitud Enviada</h2>
+                <p class="p-left spaced">Le informamos que su solicitud para asociarse a <b>COVIBUCEO</b> fue enviada con éxito. Usted recibirá un correo electrónico a: <div class="link">${resultado.email}</div> cuando gestionemos el estado de su solicitud.</p>
+                <p class="p-left spaced">En caso de aprobar su solicitud le enviaremos los datos para realizar su aporte inicial. Una vez realice este aporte, se le asignara una vivienda en base a las necesidades solicitadas.</p>
+                <button class="button-longsize light-green" type="button" onclick="close()">Aceptar</button>
+            `;
+        console.log(mensaje);
+        return mensaje;
+        }
+
 const API_Usuarios = "../../backend/api/usuarios.php"; // Definir constante de la API
 
 // Agregar Solicitud de Socio
@@ -21,20 +34,17 @@ document.getElementById("form-registro").addEventListener("submit", async e => {
 
     const resultado = await response.json(); // Espera la respuesta y la convierte a JSON
 
-    $status = response.status; // Obtiene el código de estado de la respuesta
-    switch ($status) {
+    const status = response.status; // Obtiene el código de estado de la respuesta
+
+    switch (status) {
 
         case 201: // Exito, solicitud agregada correctamente
-            function buildHTML(resultado){ // Función para construir el HTML del mensaje
-                const mensaje = `
-                    <h2>Solicitud Enviada</h2>
-                    <p class="p-left spaced">Le informamos que su solicitud para asociarse a <b>COVIBUCEO</b> fue enviada con éxito. Usted recibirá un correo electrónico a: <div class="link">${resultado.email}</div> cuando gestionemos el estado de su solicitud.</p>
-                    <p class="p-left spaced">En caso de aprobar su solicitud le enviaremos los datos para realizar su aporte inicial. Una vez realice este aporte, se le asignara una vivienda en base a las necesidades solicitadas.</p>
-                    <button class="button-longsize light-green" onclick = "close()">Aceptar</button>
-                `;
-            }
-            const mensaje = encodeURIComponent(resultado.mensaje); // Codifica el mensaje para URL
-            window.location.href = "../Landing Page/aceptado.html?mensaje=" + mensaje; //Redirige a una nueva pestaña pasando como parámetro el mensaje recibido de la API.
+            console.log("Solicitud agregada correctamente");
+            const mensaje_raw = buildHTML(resultado); 
+            console.log(mensaje_raw);
+            
+            const mensaje_codificado = encodeURIComponent(mensaje_raw); // Codifica el mensaje para URL
+            window.location.href = "../Landing Page/aceptado.html?mensaje=" + mensaje_codificado; //Redirige a una nueva pestaña pasando como parámetro el mensaje recibido de la API.
         break;
 
         case 409: // Error (usuario existente)
@@ -62,6 +72,5 @@ document.getElementById("solicitudes-pendientes").addEventListener("DOMContentLo
     const response = await fetch(API_Usuarios, {
         method: "GET", // Hace una solicitud POST
         headers: { "Content-Type": "application/json" }, // Define el tipo de contenido como JSON
-        body: JSON.stringify(socios) // Convierte el objeto socio a una cadena JSON
     })
 });
