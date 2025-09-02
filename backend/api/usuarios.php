@@ -19,7 +19,7 @@
     if (isset($resultado['error'])) { // Identifica si el status es de error o éxito
         echo json_encode(['error' => $resultado['error']]);
     } else {
-        echo json_encode(['mensaje' => $resultado['mensaje']]);
+        echo json_encode(['mensaje' => $resultado['mensaje' ], 'email' => $resultado['email']]);
     }
         break;
     
