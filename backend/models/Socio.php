@@ -25,6 +25,15 @@
             return $stmt->fetch(); // Obtiene el resultado de la consulta
         }
 
+        public function verify_solicitud($input) {
+            $stmt = $this->conn->prepare("SELECT * FROM " . $this->table_name . " WHERE (CI = ? OR Email = ?) AND Estado_Socio = 'Pendiente'"); // Consulta para verificar si ese usuario ya existe
+            $stmt->execute([ // Ejecuta la consulta con los parámetros proporcionados
+            $input['ci'], 
+            $input['email']
+        ]); 
+            return $stmt->fetch(); // Obtiene el resultado de la consulta
+        }
+        
         public function add_Socio($input){
             $stmt = $this->conn->prepare("INSERT INTO " . $this->table_name .  " (Nombre, Apellido, CI, Email, Password_hash) VALUES (?, ?, ?, ?, ?)");
             $insert = $stmt->execute([

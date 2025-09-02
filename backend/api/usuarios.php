@@ -11,7 +11,7 @@
         $input = json_decode(file_get_contents('php://input'), true); // Decodifica el JSON recibido en un array asociativo
 
         $socio = new Socio_Controller(); // Crea un objeto Socio
-        $resultado = $socio->agregar_Socio($input); // Llama al método crear del objeto Socio, pasando como pararmetro la decodificación json
+        $resultado = $socio->agregar_Socio($input); // Llama al método crear del Controlador Socio, pasando como pararmetro la decodificación json
 
         http_response_code($resultado['status']); // Establece el código de respuesta HTTP, llamando al status corespondiente
 
@@ -19,7 +19,7 @@
     if (isset($resultado['error'])) { // Identifica si el status es de error o éxito
         echo json_encode(['error' => $resultado['error']]);
     } else {
-        echo json_encode(['mensaje' => $resultado['mensaje' ], 'email' => $resultado['email']]);
+        echo json_encode(['mensaje' => $resultado['mensaje'], 'email' => $resultado['email']]);
     }
         break;
     
