@@ -1,5 +1,3 @@
-console.log("app.js cargado correctamente");
-
 function buildHTML(resultado){ // Función para construir el HTML del mensaje
         const mensaje = `
             <h2>Solicitud Enviada</h2>
@@ -39,10 +37,7 @@ document.getElementById("form-registro").addEventListener("submit", async e => {
     switch (status) {
 
         case 201: // Exito, solicitud agregada correctamente
-            console.log("Solicitud agregada correctamente");
             const mensaje_raw = buildHTML(resultado); 
-            console.log(mensaje_raw);
-            
             const mensaje_codificado = encodeURIComponent(mensaje_raw); // Codifica el mensaje para URL
             window.location.href = "../Landing Page/aceptado.html?mensaje=" + mensaje_codificado; //Redirige a una nueva pestaña pasando como parámetro el mensaje recibido de la API.
         break;
@@ -56,6 +51,12 @@ document.getElementById("form-registro").addEventListener("submit", async e => {
         case 500: // Error del servidor
             document.getElementById("response").textContent = resultado.error;  
             document.getElementById("response").style.color = "red";
+        break;
+
+        default: // Otro error
+            document.getElementById("response").textContent = "Ocurrió un error inesperado. Por favor, inténtelo de nuevo.";
+            document.getElementById("response").style.color = "red";
+        break;
         
     }
 

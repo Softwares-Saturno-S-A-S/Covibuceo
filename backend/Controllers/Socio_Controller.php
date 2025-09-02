@@ -24,7 +24,7 @@
                     } else { // Si la inserccion no fue exitosa, por error de conexión, devuelve el status 500 y un mensaje de error
                         return [
                             'status' => 500,
-                            'error' => 'Error al registrar solicitud: ' . $st->errorInfo()[2] 
+                            'error' => 'Error al registrar solicitud: ' . $this->Socio->add_Socio($input)
                         ];
                 }
             } 
