@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+
+# Contenedor para la aplicacion web
+  web:
+    build: . # Construir la imagen desde el Dockerfile en el directorio actual.
+    ports:
+      - "8080:80" # Mapear el puerto 80 del contenedor al puerto 8080 del host.
+    depends_on:
+     - db
+
+# Contenedor para la base de datos MySQL
+  db:
+    image: mysql:8.0 # Usar MySQL versión 8.0.
+    container_name: mysql_container
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: cooperativa
