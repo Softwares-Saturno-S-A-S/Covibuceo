@@ -2,7 +2,7 @@ version: '3.8'
 services:
 
 # Contenedor para la aplicacion web
-  web:
+  public-web:
     build: . # Construir la imagen desde el Dockerfile en el directorio actual.
     ports:
       - "8080:80" # Mapear el puerto 80 del contenedor al puerto 8080 del host.
@@ -14,6 +14,7 @@ services:
     depends_on:
      - database
 
+
 # Contenedor para la base de datos MySQL
   database:
     image: mysql:8.0 # Usar MySQL versión 8.0.
@@ -22,3 +23,6 @@ services:
       MYSQL_DATABASE: cooperativa
       MYSQL_USER: user_web
       MYSQL_PASSWORD: user_password
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./source/backend/config/database/cooperativa.sql:/docker-entrypoint-initdb.d/init-users.sql
