@@ -11,6 +11,7 @@
     --color-10: #FFE97B;
 
     --border-rad: 15px;
+    --small-padding: 20px;
     --padding: 50px;
     --great-padding: 100px;
     --gap: 15px;
@@ -46,7 +47,7 @@ footer {
     align-items: center;
     background-color: var(--color-1);
     color: var(--color-6);
-    padding: var(--padding);
+    padding: var(--small-padding);
 }
 
 header {
@@ -127,7 +128,6 @@ section {
     flex-direction: column;
     justify-content: center;
     gap: var(--gap);
-    text-indent: var(--sangria);
     padding: var(--padding);
     background: linear-gradient(to right, var(--color-4), 85%, transparent);
 }
