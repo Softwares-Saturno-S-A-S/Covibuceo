@@ -25,7 +25,7 @@
 
 <body>
     <header>
-        <a href="index.php"><img src="../../img/Logo Cooperativa (3).svg" alt="Logo COVIBUCEO"></a>
+        <a href="index.php"><img src="../img/Logo Cooperativa (3).svg" alt="Logo COVIBUCEO"></a>
         <ul>
             <li><a href="registro.html">Registrarse</a></li>
         </ul>

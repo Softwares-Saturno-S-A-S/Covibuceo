@@ -5,12 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COVIBUCEO - Home Administración</title>
-    <link rel="stylesheet" href="../../css/estilos.css">
-    <style>
-        button {
-            margin-left: 25px;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/buttons.css">
+    <link rel="icon" type="image/png" href="../img/Logo Cooperativa (3).svg">
 </head>
 
 <body>
