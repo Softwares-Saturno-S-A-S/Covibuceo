@@ -2,7 +2,7 @@ version: '3.8'
 services:
 
 # Contenedor para la aplicacion web
-  public-web:
+  web:
     build: . # Construir la imagen desde el Dockerfile en el directorio actual.
     ports:
       - "8080:80" # Mapear el puerto 80 del contenedor al puerto 8080 del host.
