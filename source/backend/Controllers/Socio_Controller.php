@@ -12,7 +12,12 @@
             if ($this->Socio->verify_existente($input)) { // Verifica si el socio ya existe
                 return [
                     'status' => 409,
-                    'error' => 'La cédula y/o el email ya están registrados.'
+                    'error' => 'Ya existe un usuario con esta cédula y/o el E-mail.'
+                ];
+            } elseif ($this->Socio->verify_solicitud($input)) { // Verifica si el socio ya tiene una solicitud pendiente
+                return [
+                    'status' => 410,
+                    'error' => 'Ya ha enviado una solicitud con esta cédula y/o el E-mail.'
                 ];
             } else {
                 if ($this->Socio->add_Socio($input)){

@@ -7,10 +7,13 @@ services:
     ports:
       - "8080:80" # Mapear el puerto 80 del contenedor al puerto 8080 del host.
     enviroment: # Declara las varibles de entorno necesarias para la conexión con Base de Datos
-      DB_HOST: database
-      DB_USER: user_web
-      DB_PASSWORD: user_password
-      DB_NAME: cooperativa
+      - DB_HOST: database
+      - DB_USER: user_web
+      - DB_PASSWORD: user_password
+      - DB_NAME: cooperativa
+    networks:
+      app-network:
+        ipv4_address: 192.168.100.2
     depends_on:
      - database
 
@@ -23,6 +26,16 @@ services:
       MYSQL_DATABASE: cooperativa
       MYSQL_USER: user_web
       MYSQL_PASSWORD: user_password
+    networks:
+      app-network:
+        ipv4_address: 192.168.100.2
     volumes:
       - mysql_data:/var/lib/mysql
-      - ./source/backend/config/database/cooperativa.sql:/docker-entrypoint-initdb.d/init-users.sql
+      - ./source/backend/config/database:/docker-entrypoint-initdb.d # Monta el directorio con los scripts SQL.
+
+  networks:
+    app-network:
+      driver: bridge
+      ipam:
+        config:
+          - subnet: 192.168.100.0/24
