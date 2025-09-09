@@ -6,11 +6,11 @@ services:
     build: . # Construir la imagen desde el Dockerfile en el directorio actual.
     ports:
       - "8080:80" # Mapear el puerto 80 del contenedor al puerto 8080 del host.
-    enviroment: # Declara las varibles de entorno necesarias para la conexión con Base de Datos
-      - DB_HOST: database
-      - DB_USER: user_web
-      - DB_PASSWORD: user_password
-      - DB_NAME: cooperativa
+    environment: # Declara las varibles de entorno necesarias para la conexión con Base de Datos
+      DB_HOST: database
+      DB_USER: user_web
+      DB_PASSWORD: user_password
+      DB_NAME: cooperativa
     networks:
       app-network:
         ipv4_address: 192.168.100.2
