@@ -31,7 +31,7 @@ services:
         ipv4_address: 192.168.100.2
     volumes:
       - mysql_data:/var/lib/mysql
-      - ./source/backend/config/database:/docker-entrypoint-initdb.d # Monta el directorio con los scripts SQL.
+      - ./database:/docker-entrypoint-initdb.d # Monta el directorio con los scripts SQL.
 
   networks:
     app-network:
