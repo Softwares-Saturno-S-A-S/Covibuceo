@@ -33,5 +33,5 @@ networks:
   app-network:
     driver: bridge
   
-volumenes:
+volumes:
   mysql_data:
