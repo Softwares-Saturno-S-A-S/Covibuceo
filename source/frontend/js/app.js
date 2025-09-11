@@ -1,8 +1,3 @@
-function close() {
-        window.close();
-        window.opener.location.reload(); // Recarga la página que abrió la ventana emergente
-    }
-
 const API_Usuarios = "../../backend/api/usuarios.php"; // Definir constante de la API
 
 // Agregar Solicitud de Socio
@@ -61,7 +56,7 @@ document.getElementById("form-registro").addEventListener("submit", async e => {
         break;
 
         default: // Otro error
-            document.getElementById("response").textContent = "Ocurrió un error inesperado. Por favor, inténtelo de nuevo.";
+            document.getElementById("response").textContent = "Ocurrió un error inesperado. Por favor, inténtelo de nuevo más tarde.";
             document.getElementById("response").style.color = "red";
         break;
         
@@ -71,11 +66,10 @@ document.getElementById("form-registro").addEventListener("submit", async e => {
 );
 
 // Mostrar Solicitudes de Socios (Para administrador)
-// document.getElementById("solicitudes-pendientes").addEventListener("DOMContentLoaded", async e => {
-//     e.preventDefault();
-//     const socios = {
-//         Estado: "Pendiente"
-//     };
+document.addEventListener("DOMContentLoaded", async e => {
+    const contenedor = document.getElementById('solicitudes-pendientes');
+
+});
 
 //     const response = await fetch(API_Usuarios, {
 //         method: "GET", // Hace una solicitud POST
