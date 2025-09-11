@@ -8,8 +8,8 @@ services:
       - "8080:80" # Mapear el puerto 80 del contenedor al puerto 8080 del host.
     environment: # Declara las varibles de entorno necesarias para la conexión con Base de Datos
       DB_HOST: database
-      DB_USER: user_web
-      DB_PASSWORD: user_password
+      DB_USER: web_user
+      DB_PASSWORD: web_password
       DB_NAME: cooperativa
     networks:
       app-network:
@@ -24,8 +24,6 @@ services:
     environment: # Variables de entorno para configurar MySQL
       MYSQL_ROOT_PASSWORD: root_password
       MYSQL_DATABASE: cooperativa
-      MYSQL_USER: user_web
-      MYSQL_PASSWORD: user_password
     networks:
       app-network:
         ipv4_address: 192.168.100.2
