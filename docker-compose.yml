@@ -12,8 +12,7 @@ services:
       DB_PASSWORD: web_password
       DB_NAME: cooperativa
     networks:
-      app-network:
-        ipv4_address: 192.168.100.2
+      - app-network
     depends_on:
      - database
 
@@ -25,15 +24,11 @@ services:
       MYSQL_ROOT_PASSWORD: root_password
       MYSQL_DATABASE: cooperativa
     networks:
-      app-network:
-        ipv4_address: 192.168.100.2
+      - app-network
     volumes:
       - mysql_data:/var/lib/mysql
       - ./database:/docker-entrypoint-initdb.d # Monta el directorio con los scripts SQL.
 
-  networks:
-    app-network:
-      driver: bridge
-      ipam:
-        config:
-          - subnet: 192.168.100.0/24
+networks:
+  app-network:
+    driver: bridge
