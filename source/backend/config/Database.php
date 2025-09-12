@@ -5,7 +5,7 @@ class Database
     private $host = $_ENV['DB_HOST'] ?? 'localhost';
     private $dbname = $_ENV['DB_NAME'] ?? 'default';
     private $username = $_ENV['DB_USER'] ?? 'root';
-    private $password = $_ENV['DB_PASS'] ?? '';
+    private $password = $_ENV['DB_PASSWORD'] ?? '';
 
     private $connection = null;
    
