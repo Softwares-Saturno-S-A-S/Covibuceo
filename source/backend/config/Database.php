@@ -2,12 +2,18 @@
 class Database
 {
     // Establecer las variables de conexión a la base de datos desde variables de entorno y proveer valores por defecto
-    private $host = $_ENV['DB_HOST'] ?? 'localhost';
-    private $dbname = $_ENV['DB_NAME'] ?? 'default';
-    private $username = $_ENV['DB_USER'] ?? 'root';
-    private $password = $_ENV['DB_PASSWORD'] ?? '';
-
+    private $host; 
+    private $dbname; 
+    private $username; 
+    private $password; 
     private $connection = null;
+
+    public function __construct() {
+        $this->host = $_ENV['DB_HOST'] ?? 'localhost';
+        $this->dbname = $_ENV['DB_NAME'] ?? 'default';
+        $this->username = $_ENV['DB_USER'] ?? 'root';
+        $this->password = $_ENV['DB_PASSWORD'] ?? '';
+    }
    
     public function getConnection() {
          if ($this->connection === null) {
