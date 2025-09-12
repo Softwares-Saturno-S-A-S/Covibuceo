@@ -1,4 +1,4 @@
-USE cooperativa;
+USE Cooperativa;
 
 CREATE TABLE SOCIO (
 	ID_Socio INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -11,6 +11,12 @@ CREATE TABLE SOCIO (
     Estado_Socio ENUM('Pendiente','Aprobado','Rechazado') DEFAULT 'Pendiente',
     ID_Unidad_Habitacional INT NOT NULL
 );
+
+ALTER TABLE SOCIO
+MODIFY ID_Unidad_Habitacional INT NULL;
+
+ALTER TABLE SOCIO
+MODIFY Password_hash VARCHAR(255) NOT NULL;
 	
 CREATE TABLE TELEFONO (
 	ID_Telefono INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -43,6 +49,12 @@ CREATE TABLE PAGO (
     Fecha_Vencimiento DATE NOT NULL
 );
 
+ALTER TABLE PAGO 
+ADD Estado_Pago ENUM ('Pendiente', 'Pago', 'Vencido');
+
+ALTER TABLE PAGO
+ADD ID_Socio INT NOT NULL;
+
 CREATE TABLE UNIDAD_HABITACIONAL (
 	ID_Unidad_Habitacional INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     Bloque VARCHAR(1) NOT NULL,
@@ -52,6 +64,9 @@ CREATE TABLE UNIDAD_HABITACIONAL (
     Estado_Unidad_Habitacional ENUM ('Sin Comenzar', 'En Proceso', 'Finalizada') DEFAULT 'Sin Comenzar',
 	Ruta_Imagen TEXT NOT NULL
 );
+
+ALTER TABLE UNIDAD_HABITACIONAL
+ADD Descripcion TEXT NOT NULL;
 
 CREATE TABLE JORNADA_LABORAL (
 	ID_Jornada INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -75,6 +90,9 @@ ADD CONSTRAINT fk_ID_Socio_Comprobante FOREIGN KEY (ID_Socio) references SOCIO (
 
 ALTER TABLE COMPROBANTE
 ADD CONSTRAINT fk_ID_Pago_Comprobante FOREIGN KEY (ID_Pago) references PAGO (ID_Pago);
+
+ALTER TABLE PAGO
+ADD CONSTRAINT fk_ID_Socio_Pago FOREIGN KEY (ID_Socio) references SOCIO (ID_Socio);
 
 ALTER TABLE JORNADA_LABORAL
 ADD CONSTRAINT fk_ID_Socio_Jornada FOREIGN KEY (ID_Socio) references SOCIO (ID_Socio);
