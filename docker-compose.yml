@@ -8,13 +8,17 @@ services:
       - "8080:80" # Mapear el puerto 80 del contenedor al puerto 8080 del host.
     environment: # Declara las varibles de entorno necesarias para la conexión con Base de Datos
       DB_HOST: database
-      DB_USER: web_user
-      DB_PASSWORD: web_password
       DB_NAME: cooperativa
+
+      DB_USER: web_user_socio
+      DB_PASSWORD: socio_password
+      
+      DB_USER_ADMIN: web_user_admin
+      DB_PASSWORD_ADMIN: admin_password
     networks:
       - app-network
     depends_on:
-     - database
+      - database
 
 
 # Contenedor para la base de datos MySQL
