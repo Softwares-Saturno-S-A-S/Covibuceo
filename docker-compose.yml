@@ -20,6 +20,22 @@ services:
     depends_on:
       - database
 
+  backup:
+    image: alpine:latest
+    depends_on:
+      - database
+    environment:
+      DB_HOST: database
+      DB_NAME: cooperativa
+      DB_USER: backup_user
+      DB_PASSWORD: backup_password
+    networks:
+      - app-network
+    volumes:
+      - ./source:/data:ro
+      - ./backups:/backups
+      - ./backup-scripts:/scripts:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
 
 # Contenedor para la base de datos MySQL
   database:

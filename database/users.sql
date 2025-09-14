@@ -11,4 +11,8 @@ CREATE USER IF NOT EXISTS 'web_user_admin'@'%' IDENTIFIED BY 'admin_password';
 
 GRANT ALL PRIVILEGES ON cooperativa.* TO 'web_user_admin'@'%';
 
+CREATE USER IF NOT EXISTS 'backup_user'@'%' IDENTIFIED BY 'backup_password';
+
+GRANT SELECT ON cooperativa.* TO 'backup_user'@'%';
+
 FLUSH PRIVILEGES;
