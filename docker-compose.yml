@@ -20,6 +20,7 @@ services:
     depends_on:
       - database
 
+# Contenedor para realizar backups
   backup:
     image: alpine:latest
     depends_on:
@@ -49,9 +50,11 @@ services:
       - mysql_data:/var/lib/mysql
       - ./database:/docker-entrypoint-initdb.d # Monta el directorio con los scripts SQL.
 
+# Configuración de red 
 networks:
   app-network:
     driver: bridge
-  
+
+# Define un volumen para persistir los datos de MySQL  
 volumes:
   mysql_data:
