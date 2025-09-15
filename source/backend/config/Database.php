@@ -9,10 +9,10 @@ class Database
     private $connection = null;
 
     public function __construct() {
-        $this->host = $_ENV['DB_HOST'] ?? 'database';
-        $this->dbname = $_ENV['DB_NAME'] ?? 'cooperativa';
-        $this->username = $_ENV['DB_USER'] ?? 'root';
-        $this->password = $_ENV['DB_PASSWORD'] ?? 'root_password';
+        $this->host = getenv("DB_HOST") ?? 'database';
+        $this->dbname = getenv("DB_NAME") ?? 'cooperativa';
+        $this->username = getenv("DB_USER") ?? 'root';
+        $this->password = getenv("DB_PASSWORD") ?? 'root_password';
     }
    
     public function getConnection() {
