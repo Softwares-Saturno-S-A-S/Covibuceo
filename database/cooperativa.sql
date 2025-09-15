@@ -1,4 +1,4 @@
-USE Cooperativa;
+USE cooperativa;
 
 CREATE TABLE SOCIO (
 	ID_Socio INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
