@@ -235,7 +235,7 @@ h3 {
 }
 
 form:not(.no-styles) {
-    width: 40%;
+    width: 45%;
     max-width: 500px;
     margin: auto;
     background-color: var(--color-6);
@@ -335,7 +335,7 @@ button {
     transition: all 0.3s;
 }
 .button-100:hover, .button-size:hover, .button-longsize:hover, .tarjeta:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .botones {
