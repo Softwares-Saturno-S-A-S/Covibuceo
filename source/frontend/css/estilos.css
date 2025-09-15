@@ -205,6 +205,12 @@ p {
     text-align: right;
 }
 
+ul{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
 .p1,
 li,
 label,
@@ -232,20 +238,21 @@ h2 {
 
 h3 {
     font-size: 1.5em;
+    margin: 10px 0;
 }
 
 form:not(.no-styles) {
-    width: 45%;
-    max-width: 500px;
+    width: 50%;
+    max-width: 600px;
     margin: auto;
     background-color: var(--color-6);
-    padding: 40px;
+    padding: var(--padding);
     border-radius: var(--border-rad);
     box-shadow: var(--shadow);
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: var(--big-gap);
+    gap: 30px;
 }
 
 .response-visible {
@@ -292,6 +299,17 @@ button {
     border: none;
     cursor: pointer;
     color: var(--color-6);
+}
+
+.cross{
+    align-self: flex-end;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    background: var(--color-3);
 }
 
 .button-100 {
