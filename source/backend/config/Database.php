@@ -11,7 +11,6 @@ class Database
     public function __construct() {
         $this->host = getenv("DB_HOST") ?? 'database';
         $this->dbname = getenv("DB_NAME") ?? 'cooperativa';
-        echo "mysql:host=" . $this->host . ";dbname=" . $this->dbname;
         $this->username = getenv("DB_USER") ?? 'root';
         $this->password = getenv("DB_PASSWORD") ?? 'root_password';
     }
