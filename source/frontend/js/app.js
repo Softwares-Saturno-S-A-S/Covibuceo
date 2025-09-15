@@ -1,4 +1,5 @@
 const API_Usuarios = "../../backend/api/usuarios.php"; // Definir constante de la API
+const elemento = document.getElementById("response");
 
 // Agregar Solicitud de Socio
 document.getElementById("form-registro").addEventListener("submit", async e => {
@@ -43,7 +44,13 @@ document.getElementById("form-registro").addEventListener("submit", async e => {
         break;
 
         case 409: // Error (usuario existente)
-            const elemento = document.getElementById("response");
+            elemento.classList.toggle("response-invisible");
+            elemento.textContent = resultado.error; // Muestra el mensaje de error devuelto por la API
+            // Agregar estilos de error
+            elemento.style.color = "#f08400ff";
+        break;
+
+        case 410: // Error (Solicitud existente)
             elemento.classList.toggle("response-invisible");
             elemento.textContent = resultado.error; // Muestra el mensaje de error devuelto por la API
             // Agregar estilos de error
