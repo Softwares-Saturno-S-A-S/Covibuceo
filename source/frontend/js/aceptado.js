@@ -9,7 +9,6 @@
         const mensaje = urlParams.get('mensaje'); // Obtiene el mensaje codificado encontrado en la URL
 
         const Email = sessionStorage.getItem('userEmail');
-        console.log('Valor del email en sessionStorage:', Email);
 
         if (mensaje === 'aceptado') {
             try {
@@ -27,6 +26,7 @@
                 contenedor.innerHTML = mensajeHTML;
 
                 const botonCerrar = contenedor.querySelector('.button-longsize');
+                console.log(botonCerrar);
                 if (botonCerrar) {
                     botonCerrar.addEventListener('click', function() {
                         window.close();
