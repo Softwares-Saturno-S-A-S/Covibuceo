@@ -16,8 +16,7 @@ services:
       DB_USER_ADMIN: web_user_admin
       DB_PASSWORD_ADMIN: admin_password
     networks:
-      app-network:
-        ipv4_address: 172.18.0.4
+      - app-network
     depends_on:
       - database
 
@@ -32,8 +31,7 @@ services:
       DB_USER: backup_user
       DB_PASSWORD: backup_password
     networks:
-      app-network:
-        ipv4_address: 172.18.0.3
+      - app-network
     volumes:
       - ./source:/data:ro
       - ./backups:/backups
@@ -47,10 +45,7 @@ services:
       MYSQL_ROOT_PASSWORD: root_password
       MYSQL_DATABASE: cooperativa
     networks:
-      app-network:
-        ipv4_address: 172.18.0.2
-        aliases:
-          - database
+      - app-network
     volumes:
       - mysql_data:/var/lib/mysql
       - ./database:/docker-entrypoint-initdb.d # Monta el directorio con los scripts SQL.
@@ -59,9 +54,6 @@ services:
 networks:
   app-network:
     driver: bridge
-    ipam:
-      config:
-        - subnet: 172.18.0.0/24
 
 # Define un volumen para persistir los datos de MySQL  
 volumes:
