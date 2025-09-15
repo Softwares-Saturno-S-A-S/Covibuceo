@@ -69,6 +69,18 @@ document.getElementById("form-registro").addEventListener("submit", async e => {
 document.addEventListener("DOMContentLoaded", async e => {
     const contenedor = document.getElementById('solicitudes-pendientes');
 
+    contenedor.innerHTML = '<p>Cargando datos...</p>';
+    const datos = await await fetch(API_Usuarios, {
+        method: "GET", // Hace una solicitud GET
+        headers: { "Content-Type": "application/json" }
+    })
+
+     if (datos.length > 0) {
+            mostrarEnTabla(datos);
+    } else {
+            contenedor.innerHTML = '<p>No hay solicitudes pendientes</p>';
+    }
+
 });
 
 //     const response = await fetch(API_Usuarios, {
