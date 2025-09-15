@@ -26,11 +26,9 @@
                 contenedor.innerHTML = mensajeHTML;
 
                 const botonCerrar = contenedor.querySelector('.button-longsize');
-                console.log(botonCerrar);
                 if (botonCerrar) {
                     botonCerrar.addEventListener('click', function() {
-                        window.close();
-                        window.opener.location.reload(); // Recarga la página que abrió la ventana emergente
+                        history.back()// Recarga la página que abrió la ventana emergente
                     });
                 }
             } catch (error) {
