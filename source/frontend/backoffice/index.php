@@ -7,7 +7,7 @@
     <title>COVIBUCEO - Home Administración</title>
     <link rel="stylesheet" href="../css/estilos.css">
     <link rel="stylesheet" href="../css/buttons.css">
-    <link rel="icon" type="image/png" href="../img/Logo Cooperativa (3).svg">
+    <link rel="icon" href="../img/Logo Cooperativa (3).svg">
 </head>
 
 <body>
