@@ -28,7 +28,7 @@
                 const botonCerrar = contenedor.querySelector('.button-longsize');
                 if (botonCerrar) {
                     botonCerrar.addEventListener('click', function() {
-                        history.back()// Recarga la página que abrió la ventana emergente
+                        window.location.href = '../Landing_Page/registro.html?reset=true'; //REdirige con parametro para resetear el formulario
                     });
                 }
             } catch (error) {
