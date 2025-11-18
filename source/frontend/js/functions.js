@@ -14,5 +14,5 @@
 });
 
 function BotonCerrar(url){
-    window.location.href = 'url?reset=true';
+    window.location.href = `${url}?reset=true`;
 }
