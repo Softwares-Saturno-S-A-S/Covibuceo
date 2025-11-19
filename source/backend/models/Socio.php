@@ -1,5 +1,9 @@
 <?php
-    require_once '../config/Database.php'; // Llama el archivo con la conexión a la base de datos
+    namespace source\backend\models;
+    
+    require_once __DIR__ . '/../config/Database.php'; // Llama el archivo con la conexión a la base de datos
+
+    use source\backend\config\Database;
 
     class Socio {
     // Variables 

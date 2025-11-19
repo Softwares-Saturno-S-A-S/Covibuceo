@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'source\\backend\\models\\' => array($baseDir . '/source/backend/models'),
+    'source\\backend\\config\\' => array($baseDir . '/source/backend/config'),
     'PhpParser\\' => array($vendorDir . '/nikic/php-parser/lib/PhpParser'),
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
 );

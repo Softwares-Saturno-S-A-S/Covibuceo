@@ -15,6 +15,7 @@ class ComposerStaticInitfbee484fbcb98ba45566f17e8eb69e9b
         's' => 
         array (
             'source\\backend\\models\\' => 22,
+            'source\\backend\\config\\' => 22,
         ),
         'P' => 
         array (
@@ -30,6 +31,10 @@ class ComposerStaticInitfbee484fbcb98ba45566f17e8eb69e9b
         'source\\backend\\models\\' => 
         array (
             0 => __DIR__ . '/../..' . '/source/backend/models',
+        ),
+        'source\\backend\\config\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/source/backend/config',
         ),
         'PhpParser\\' => 
         array (

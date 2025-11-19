@@ -4,7 +4,8 @@
     },
     "autoload": {
         "psr-4": {
-            "source\\backend\\models\\": "source/backend/models/"
+            "source\\backend\\models\\": "source/backend/models/",
+            "source\\backend\\config\\": "source/backend/config/"
         }
     }
 }
