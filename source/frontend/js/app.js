@@ -61,7 +61,7 @@ document.getElementById("form-registro").addEventListener("submit", async e => {
 );
 
 // Mostrar Solicitudes de Socios (Para administrador)
-document.addEventListener("DOMContentLoaded", async e => {
+/*document.addEventListener("DOMContentLoaded", async e => {
     const contenedor = document.getElementById('solicitudes-pendientes');
 
     contenedor.innerHTML = '<p>Cargando datos...</p>';
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", async e => {
             contenedor.innerHTML = '<p>No hay solicitudes pendientes</p>';
     }
 
-});
+});*/
 
 //     const response = await fetch(API_Usuarios, {
 //         method: "GET", // Hace una solicitud POST
