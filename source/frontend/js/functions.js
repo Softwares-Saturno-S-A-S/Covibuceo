@@ -12,3 +12,7 @@
         history.replaceState({}, document.title, window.location.pathname);  // Limpia la URL, reestableciendo la ruta original
     }
 });
+
+function BotonCerrar(url){
+    window.location.href = `${url}?reset=true`;
+}
