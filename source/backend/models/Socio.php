@@ -1,6 +1,5 @@
 <?php
-
-    require_once __DIR__ . '/../config/Database.php'; // Llama el archivo con la conexión a la base de datos
+    require_once '../config/Database.php'; // Llama el archivo con la conexión a la base de datos
 
     class Socio {
     // Variables 
