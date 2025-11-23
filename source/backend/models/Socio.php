@@ -1,4 +1,5 @@
 <?php
+
     require_once __DIR__ . '/../config/Database.php'; // Llama el archivo con la conexión a la base de datos
 
     class Socio {
@@ -8,7 +9,7 @@
         private $table_name = "SOCIO";
 
     // Constructor 
-    
+     
         public function __construct() { 
             $database = new Database();
             $this->conn = $database->getConnection();
