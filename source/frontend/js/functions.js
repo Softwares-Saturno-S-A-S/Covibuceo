@@ -1,4 +1,4 @@
- history.replaceState({}, document.title, window.location.pathname);document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', (event) => {
     const urlParams = new URLSearchParams(window.location.search);
     const shouldReset = urlParams.get('reset');
 
