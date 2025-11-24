@@ -1,5 +1,4 @@
 <?php
-namespace source\backend\config;
 
 class Database
 {
