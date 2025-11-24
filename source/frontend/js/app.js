@@ -28,7 +28,7 @@ document.getElementById("form-registro").addEventListener("submit", async e => {
 
         case 201: // Exito, solicitud agregada correctamente
             sessionStorage.setItem("userEmail", resultado.email); // Guarda el email del usuario en sessionStorage
-            window.location.href = "../Landing_Page/aceptado.html?mensaje=aceptado" ; //Redirige a una nueva pestaña pasando como parámetro el mensaje recibido de la API.
+            window.location.href = "/Landing_Page/aceptado.html?mensaje=aceptado" ; //Redirige a una nueva pestaña pasando como parámetro el mensaje recibido de la API.
         break;
 
         case 409: // Error (usuario existente)
